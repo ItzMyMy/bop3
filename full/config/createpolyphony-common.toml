@@ -1,0 +1,61 @@
+#Maximum simultaneous active voices in the real-time synth. Oldest voices are culled first when the limit is exceeded.
+# Default: 32
+# Range: 1 ~ 256
+maxVoices = 32
+#Size of the PCM ring buffer between the synth thread and Minecraft's audio thread, in bytes.
+# Default: 44100
+# Range: 8192 ~ 1048576
+ringBufferBytes = 44100
+#How many PCM bytes each synth render chunk targets during manual SoundFont synthesis.
+# Default: 4096
+# Range: 512 ~ 65536
+pumpChunkBytes = 4096
+#Look-ahead jitter buffer applied to incoming MIDI events, in milliseconds.
+#All notes play exactly this long after the server emitted them, so network/render jitter under this budget is inaudible.
+#Higher = more rock-solid timing under unstable networks; lower = more responsive on local play.
+#60 ms is comfortable for most setups; 120 ms is bulletproof; below 40 ms you may hear warble again.
+# Default: 120
+# Range: 0 ~ 1000
+schedulingDelayMs = 120
+#How often the client probes the server for clock-offset updates, in milliseconds.
+#Lower values catch slow drift faster at negligible bandwidth cost (16 bytes per ping).
+# Default: 5000
+# Range: 500 ~ 60000
+clockSyncIntervalMs = 5000
+#If true, One Man Band uses raw MIDI programs for full GM playback.
+#If false, One Man Band snaps to supported instrument families only.
+oneManBandUseAllGmPrograms = false
+#Which Minecraft volume slider controls instrument synth playback.
+#Allowed Values: MASTER, MUSIC, RECORDS, WEATHER, BLOCKS, HOSTILE, NEUTRAL, PLAYERS, AMBIENT, VOICE
+synthSoundSource = "RECORDS"
+#Controls deployer automation playback participation.
+#CONTINUOUS_POWERED: plays continuously while deployer speed is non-zero and not redstone-locked; stops immediately when power/rotation is lost.
+#INTERACTION_ONLY: only keeps holders active briefly around deployer interaction ticks (hand fully deploys).
+#Allowed Values: CONTINUOUS_POWERED, INTERACTION_ONLY
+deployerPlaybackMode = "INTERACTION_ONLY"
+#Maximum distance, in blocks, at which an instrument note can be heard.
+#This is decoupled from server simulation distance so playback range is not implicitly tied to chunk loading.
+#Server-applicable: gates which players receive note packets and is forwarded to clients for falloff bookkeeping.
+# Default: 48
+# Range: 16 ~ 1024
+audibleDistanceBlocks = 48
+#Volume multiplier applied to instruments you are personally holding (self-play).
+#Acts as a pre-attenuation PCM gain - values above 1.0 amplify, with hard-clip protection.
+#Client-applicable.
+# Default: 1.0
+# Range: 0.0 ~ 4.0
+selfPlayVolume = 1.0
+#Volume multiplier applied to instruments held by other players, mobs, and deployers (positional).
+#Acts as a pre-attenuation PCM gain - values above 1.0 amplify, with hard-clip protection.
+#Useful for boosting external instrument loudness without changing the global Records slider.
+#Client-applicable.
+# Default: 1.0
+# Range: 0.0 ~ 4.0
+otherPlayVolume = 1.0
+#Multiplies the distance at which positional instrument audio fades out.
+#1.0 = audio reaches its maximum hearable distance; 0.5 = falls off twice as fast; 2.0 = carries twice as far within the same audible distance.
+#Higher values keep instruments loud closer to the source; lower values make them dim more aggressively with distance.
+#Client-applicable.
+# Default: 0.5
+# Range: 0.1 ~ 4.0
+falloffMultiplier = 0.5

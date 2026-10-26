@@ -1,0 +1,12 @@
+name = "livinghorizon-0.12.0+mc1.21.1-neoforge"
+filename = "livinghorizon-0.12.0+mc1.21.1-neoforge.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/waMgzwUY/versions/PRBtbeHU/livinghorizon-0.12.0%2Bmc1.21.1-neoforge.jar"
+hash-format = "sha512"
+hash = "26a139ff3f523a08ef81afaf144907eb235f7b6b99d005642fb74ae9104be3b206e4f2ad53bf016d61da9493e87115be5b5b6d7d7391aaf0c868fc7dfae77a27"
+
+[update.modrinth]
+mod-id = "waMgzwUY"
+version = "PRBtbeHU"

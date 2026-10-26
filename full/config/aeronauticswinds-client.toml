@@ -1,0 +1,80 @@
+[visuals]
+	enableRegionalFog = false
+	#Render regional 3D clouds and replace vanilla clouds.
+	enableCustomClouds = true
+	#Stop rendering Aeronautics clouds above this camera Y; useful for space gameplay.
+	# Default: 512.0
+	# Range: 192.0 ~ 100000.0
+	cloudRenderCutoffY = 512.0
+	#Strength of smooth, non-particle haze while the camera is inside a cloud.
+	# Default: 0.75
+	# Range: 0.0 ~ 2.0
+	insideCloudFogStrength = 0.75
+	#Regional fog strength multiplier (0..2).
+	# Default: 1.0
+	# Range: 0.0 ~ 2.0
+	fogDensity = 1.0
+	#Make existing vanilla and mod particles drift gently with wind; does not spawn extra particles.
+	enableParticleWind = true
+	#Strength of cosmetic particle drift.
+	# Default: 0.45
+	# Range: 0.0 ~ 2.0
+	particleWindStrength = 0.45
+	#Lift sparse, opaque block dust from exposed ground. Disable for no mod-created particles.
+	enableWindParticles = true
+	#Density of discreet ground dust. One remains intentionally sparse.
+	# Default: 0.65
+	# Range: 0.0 ~ 2.0
+	windParticleAmount = 0.65
+	#Enable smooth layered wind ambience.
+	enableWindAudio = true
+	#Master volume for Aeronautics wind ambience.
+	# Default: 0.8
+	# Range: 0.0 ~ 1.0
+	windAudioVolume = 0.8
+	#Volume multiplier for glider flight audio and wind rush.
+	# Default: 0.9
+	# Range: 0.0 ~ 1.0
+	gliderAudioVolume = 0.9
+	#Dynamic FOV widening during glider dives and high-speed flight.
+	gliderFovEffect = true
+	#Smooth camera roll/tilt when banking during glider flight.
+	gliderCameraTilt = true
+	#Glider HUD style: 0 = Zelda Circular Stamina Wheel, 1 = Genshin Horizontal Stamina Bar.
+	# Default: 0
+	# Range: 0 ~ 1
+	gliderHudStyle = 0
+	#Spawn aerodynamic wingtip vapor condensation ribbons at high speed.
+	enableGliderTrailParticles = true
+	#Spawn rising vortex wind particles inside campfire and thermal updrafts.
+	enableUpdraftParticles = true
+
+[compatibility]
+	#Drive Better Clouds' travel speed and direction from Aeronautics wind.
+	syncBetterCloudsWind = true
+	#Better Clouds travel-speed units per m/s of wind.
+	# Default: 0.005
+	# Range: 0.0 ~ 0.2
+	betterCloudsTravelSpeedPerMps = 0.005
+	#Drive Better Clouds coverage, cloudiness, density, and atmospheric lighting from Aeronautics regional weather.
+	syncBetterCloudsWeather = true
+
+[hud]
+	enableHud = true
+
+[camera]
+	#Roll the camera slightly in strong crosswinds.
+	windCameraRoll = false
+	# Default: 1.5
+	# Range: 0.0 ~ 8.0
+	windCameraRollDegrees = 1.5
+	#Center the pilot and wind glider model symmetrically in third-person view instead of focusing high at eye level.
+	centerGliderCameraThirdPerson = true
+	#Camera zoom distance when flying the wind glider in third-person mode.
+	# Default: 5.0
+	# Range: 3.0 ~ 10.0
+	gliderThirdPersonDistance = 5.0
+	#Vertical camera target offset (in blocks) to balance pilot and glider canopy in screen center.
+	# Default: -0.36
+	# Range: -1.5 ~ 1.0
+	gliderThirdPersonVerticalOffset = -0.36

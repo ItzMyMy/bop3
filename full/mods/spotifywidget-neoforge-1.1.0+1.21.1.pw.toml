@@ -1,0 +1,12 @@
+name = "Spoty Widget"
+filename = "spotifywidget-neoforge-1.1.0+1.21.1.jar"
+side = "client"
+
+[download]
+hash = "22c228276d18d741504638c032c563fca6d788c93c528531d80873017a18135125d33d16c929069f249211bdd424ea11d9eb04c36c9c7c91e322ffc5c1abbd44"
+hash-format = "sha512"
+url = "https://cdn.modrinth.com/data/pjhN6TWN/versions/rid7RplA/spotifywidget-neoforge-1.1.0%2B1.21.1.jar"
+
+[update.modrinth]
+mod-id = "pjhN6TWN"
+version = "rid7RplA"

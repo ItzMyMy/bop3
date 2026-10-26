@@ -1,0 +1,17 @@
+[
+  {"version":1},
+  {"ingredient":{"id":"cold_sweat:thermolith"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"cold_sweat:thermometer"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"minecraft:iron_ingot"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"minecraft:spruce_trapdoor"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"vc_gliders:reinforced_paper"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"vc_gliders:paraglider_wood","components":"{\"cold_sweat:armor_insulation\":{insulation:[]}}"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"cold_sweat:waterskin"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"minecraft:bamboo_mosaic_stairs"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"create:extendo_grip","components":"{\"minecraft:damage\":150}"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"create:extendo_grip"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"create:wand_of_symmetry"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"createdeco:industrial_iron_ingot"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"create:industrial_iron_block"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"createharmonics:creative_ethereal_record","components":"{\"createharmonics:crafted_with\":\"minecraft:music_disc_strad\"}"},"type":"item_stack","bookmarkType":"INGREDIENT"}
+]

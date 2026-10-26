@@ -1,0 +1,10 @@
+#Client rendering options
+[rendering]
+	#Tilt the player's view (and aim) to align with the sub-level they stand on.
+	viewTilted = true
+	#Render entities aligned to the surface normal of the sub-level they stand on.
+	entitiesTilted = true
+	#View-tilt smoothing half-life, in ticks. Lower = snappier, higher = floatier.
+	# Default: 3.0
+	# Range: 0.01 ~ 40.0
+	smoothSpeed = 3.0

@@ -1,0 +1,106 @@
+[simulation]
+	#Ticks between pollution simulation steps. Higher = slower buildup.
+	# Default: 200
+	# Range: 20 ~ 2400
+	intervalTicks = 200
+	#Gaussian spread radius in chunks. Mass is normalized so total emission equals furnacePerStep.
+	# Default: 1.75
+	# Range: 0.25 ~ 16.0
+	defaultSigmaChunks = 1.75
+	# Default: 6
+	# Range: 1 ~ 64
+	maxSourceRadiusChunks = 6
+	#Base isotropic bleed between neighboring chunks each step (wind adds mild advection).
+	# Default: 0.06
+	# Range: 0.0 ~ 0.5
+	diffusion = 0.06
+	# Default: 0.01
+	# Range: 1.0E-6 ~ 1.0
+	epsilon = 0.01
+
+[emissions]
+	#Global multiplier applied to every pollution source each sim step.
+	# Default: 1.5
+	# Range: 0.1 ~ 20.0
+	globalMultiplier = 1.5
+	#Total pollution mass added per sim step from one active furnace (before globalMultiplier).
+	# Default: 1.5
+	# Range: 0.01 ~ 100.0
+	furnacePerStep = 1.5
+	# Default: 3.0
+	# Range: 1.0 ~ 20.0
+	blazeBurnerMultiplier = 3.0
+	#Per sampled sky-exposed lava block per step (before globalMultiplier).
+	# Default: 2.0
+	# Range: 0.1 ~ 50.0
+	lavaPerStep = 2.0
+	# Default: 0.3
+	# Range: 0.01 ~ 10.0
+	campfirePerStep = 0.3
+
+[wind]
+	# Default: 0.12
+	# Range: 0.0 ~ 4.0
+	naturalStrength = 0.12
+	#Minimum Sable propeller thrust to affect pollution wind. Fans push in a bidirectional cone, not a world-wide field.
+	# Default: 16.0
+	# Range: 0.0 ~ 100000.0
+	artificialThreshold = 16.0
+	#At/below this Y, fan cones stay compact.
+	# Default: 70
+	# Range: -64 ~ 400
+	localAltitude = 70
+	#At/above this Y, fan cones reach ~1.65× farther (still capped, never map-wide).
+	# Default: 200
+	# Range: -64 ~ 1000
+	globalAltitude = 200
+
+[sinks]
+	#Nature absorbs industry. Forest and grassland are soft-capped toward a shared baseline so neither extreme dominates.
+	#Trees worth of leaves needed for ~1 furnace of forest sink (before soft-cap). Higher = forest less OP.
+	# Default: 8
+	# Range: 1 ~ 50
+	treesForFurnace = 8
+	# Default: 40
+	# Range: 5 ~ 500
+	leafBlocksPerTree = 40
+	# Default: 100
+	# Range: 10 ~ 2000
+	waterBlocksForFurnace = 100
+	#Grass columns for ~1 furnace of plains sink (before soft-cap). Lower = grassland stronger.
+	# Default: 100
+	# Range: 10 ~ 2000
+	grassBlocksForFurnace = 100
+	#Rain multiplies natural sinks and also washes a % of the cell each step.
+	# Default: 3.0
+	# Range: 0.0 ~ 20.0
+	rainBoost = 3.0
+	# Default: 6000
+	# Range: 20 ~ 120000
+	cacheTicks = 6000
+
+[effects]
+	#Chance scale for grass/leaf death once over the tipping point. Crops and animals are not damaged.
+	# Default: 0.22
+	# Range: 0.0 ~ 1.0
+	vegetationDamageScale = 0.22
+	#Pollution level before visible haze / map tint / client murk begins. Shared scale for server + client.
+	# Default: 18.0
+	# Range: 1.0 ~ 10000.0
+	fogStartThreshold = 18.0
+	#Pollution level for maximum smog / sun-blocking / full interior murk.
+	# Default: 110.0
+	# Range: 10.0 ~ 50000.0
+	fogMaxThreshold = 110.0
+	#How far (in chunks) pollution data is synced to clients. Raise for Distant Horizons smog banks.
+	# Default: 48
+	# Range: 8 ~ 128
+	clientSyncRadiusChunks = 48
+	#Tipping point — above this vegetation starts failing.
+	# Default: 40.0
+	# Range: 1.0 ~ 10000.0
+	poorHealthThreshold = 40.0
+	#How quickly player exposure decays when air is clean.
+	# Default: 0.02
+	# Range: 0.0 ~ 1.0
+	exposureRecovery = 0.02

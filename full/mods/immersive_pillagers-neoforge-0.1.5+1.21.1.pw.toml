@@ -1,0 +1,12 @@
+name = "Immersive Pillagers"
+filename = "immersive_pillagers-neoforge-0.1.5+1.21.1.jar"
+side = "both"
+
+[download]
+hash = "b5ebb6e16b1847a012b65e65f7c25a38cd84b230f9dd9e8fb3c52365ef51a5e928ef777299cce73e6eba702280448a102976379172e10cdb70d7c10fde95e34c"
+hash-format = "sha512"
+url = "https://cdn.modrinth.com/data/oFiblXl3/versions/9EZu4C0P/immersive_pillagers-neoforge-0.1.5%2B1.21.1.jar"
+
+[update.modrinth]
+mod-id = "oFiblXl3"
+version = "9EZu4C0P"

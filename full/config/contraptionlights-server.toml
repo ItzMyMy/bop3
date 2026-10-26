@@ -1,0 +1,18 @@
+#Place real light blocks as a Create contraption moves, so every player sees the light.
+enableContraptionLightBlock = false
+#Place real light blocks as a Sable sub-level moves, so every player sees the light.
+enableSubLevelLightBlock = false
+#A light inside a sealed room on a Sable sub-level places no light block in the world outside.
+enableSubLevelLightBlockOcclusion = true
+#Only place a light block for sources at least this bright.
+# Default: 1
+# Range: 0 ~ 15
+minLightBlockEmission = 1
+#Let lights next to each other share one light block when no spot ends up more than this many light levels darker. 0 shares only where nothing gets darker.
+# Default: 1
+# Range: 0 ~ 4
+lightBlockMergeTolerance = 1
+#Most light blocks placed, changed or removed per tick in each dimension. The rest follow on later ticks. 0 is no limit.
+# Default: 0
+# Range: 0 ~ 100000
+maxLightBlockChangesPerTick = 0

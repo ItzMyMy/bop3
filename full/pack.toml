@@ -1,0 +1,13 @@
+name = "best of pack 3"
+author = "ItzMyMy"
+version = "1.0.0"
+pack-format = "packwiz:1.1.0"
+
+[index]
+file = "index.toml"
+hash-format = "sha256"
+hash = "919f010629d86881b191697b704b0b14d8c39ede7c487f747f3c55e931ba4f71"
+
+[versions]
+minecraft = "1.21.1"
+neoforge = "21.1.264"

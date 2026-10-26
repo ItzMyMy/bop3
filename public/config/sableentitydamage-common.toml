@@ -1,0 +1,34 @@
+#Whether to log the dirt block on common setup
+logDirtBlock = true
+#A magic number
+# Default: 42
+# Range: > 0
+magicNumber = 42
+#What you want the introduction message to be for the magic number
+magicNumberIntroduction = "The magic number is... "
+#A list of items to log on common setup.
+items = ["minecraft:iron_ingot"]
+#Minimum impact speed (blocks/tick) before a crushing block damages a player.
+# Default: 15.0
+# Range: 0.0 ~ 1.7976931348623157E308
+impactThreshold = 15.0
+#Damage dealt per (blocks/tick) of impact speed above the threshold.
+# Default: 0.5
+# Range: 0.0 ~ 1.7976931348623157E308
+impactDamageMultiplier = 0.5
+#Minimum collision impact speed before a physics object triggers a blast on impact.
+# Default: 4.0
+# Range: 0.0 ~ 1.7976931348623157E308
+blastImpactThreshold = 4.0
+#Damage at blast center per (impact speed - threshold). Falls off linearly to zero at the radius.
+# Default: 2.0
+# Range: 0.0 ~ 1.7976931348623157E308
+blastDamageMultiplier = 2.0
+#Blast radius (blocks) per (impact speed - threshold).
+# Default: 1.0
+# Range: 0.0 ~ 1.7976931348623157E308
+blastRadiusMultiplier = 1.0
+#Explosion sound volume per (impact speed - threshold). Vanilla TNT uses ~4.0.
+# Default: 0.1
+# Range: 0.0 ~ 1.7976931348623157E308
+blastSoundVolumeMultiplier = 0.1

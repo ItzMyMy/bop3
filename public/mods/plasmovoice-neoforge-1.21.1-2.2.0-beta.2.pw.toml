@@ -1,0 +1,12 @@
+name = "Plasmo Voice"
+filename = "plasmovoice-neoforge-1.21.1-2.2.0-beta.2.jar"
+side = "both"
+
+[download]
+hash = "53873533de95cf31a1ea6394cfa1fc0678e91f42b75596aa312813716795b50a2482bbf2f7a2981eeaec0bf8544fbe75b17cdddd3d3cb364eda1786cf28cccdf"
+hash-format = "sha512"
+url = "https://cdn.modrinth.com/data/1bZhdhsH/versions/2t3oKqxe/plasmovoice-neoforge-1.21.1-2.2.0-beta.2.jar"
+
+[update.modrinth]
+mod-id = "1bZhdhsH"
+version = "2t3oKqxe"

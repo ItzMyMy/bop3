@@ -1,0 +1,12 @@
+name = "Vietnam's Delight Reborn"
+filename = "vietnams_delight_reborn-neoforge-1.21.1-2.0.0.jar"
+side = "both"
+
+[download]
+hash = "efc16f69b4092bf50cb107ca620ce181511d25b7ff6a7f1c43c8c711116bd9076556397522e9ceb642c8d0b5328330304bbd1ecfb8b6e505be8140ebe29a0105"
+hash-format = "sha512"
+url = "https://cdn.modrinth.com/data/BwoSkioe/versions/4A50T0k4/vietnams_delight_reborn-neoforge-1.21.1-2.0.0.jar"
+
+[update.modrinth]
+mod-id = "BwoSkioe"
+version = "4A50T0k4"

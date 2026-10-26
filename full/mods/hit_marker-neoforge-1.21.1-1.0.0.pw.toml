@@ -1,0 +1,12 @@
+name = "Hit Marker"
+filename = "hit_marker-neoforge-1.21.1-1.0.0.jar"
+side = "client"
+
+[download]
+hash = "d1896d866e62d836d5c2151f7dc90795b3bb308b52015f9e76de934930b43ee083b43657ab44c824c5c5081dbca67b1884fdecd8edeb3ec5cbbf9794b13e3195"
+hash-format = "sha512"
+url = "https://cdn.modrinth.com/data/4XAuVkaI/versions/8p2EgRPg/hit_marker-neoforge-1.21.1-1.0.0.jar"
+
+[update.modrinth]
+mod-id = "4XAuVkaI"
+version = "8p2EgRPg"

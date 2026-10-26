@@ -1,0 +1,29 @@
+#Whether to display the sounding pitch on mutation pipes while wearing goggles.
+displayMutationSoundingPitch = true
+#If true, octave values in goggle tooltips are shown in parentheses.
+showOctaveBrackets = false
+
+[sounds]
+	#Volume multiplier for whistle chiff sounds
+	# Default: 1.0
+	# Range: 0.0 ~ 2.0
+	whistleChiffVolume = 1.0
+	#How far away you can hear pipes
+	# Default: 64.0
+	# Range: 1.0 ~ 256.0
+	pipeAttenuationDistance = 64.0
+	#How fast pipe sounds fade out per tick (higher = faster)
+	# Default: 0.25
+	# Range: 0.01 ~ 0.5
+	pipeFadeSpeed = 0.25
+	#Maximum volume per pipe sound source (0.0-1.0).
+	#Lower this if you get crackling when many pipes play simultaneously.
+	#At 1.0 (default), 10+ simultaneous pipes can sum past 0 dBFS and clip.
+	# Default: 0.5
+	# Range: 0.01 ~ 1.0
+	pipeVolume = 0.5
+	#Max simultaneous sound channels.
+	#Higher values use more RAM/CPU. Restart to apply.
+	# Default: 512
+	# Range: 256 ~ 2048
+	maxSoundSources = 512

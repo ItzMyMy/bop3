@@ -1,0 +1,24 @@
+{
+    "ModSettings": {
+        "highlight_foused_items_foreground": false,
+        "highlight_clicking_slot": false,
+        "first_run": false
+    },
+    "GuiSettings": {
+        "enable_profiles_ui": {
+            "value": false
+        },
+        "enable_profiles_announcement": false,
+        "enable_inventory_buttons": {
+            "value": false
+        },
+        "show_fast_rename_checkbox": {
+            "value": false
+        },
+        "show_continuous_crafting_checkbox": {
+            "value": false
+        },
+        "continuous_crafting_saved_value": false,
+        "show_button_tooltips": false
+    }
+}

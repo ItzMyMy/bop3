@@ -1,0 +1,12 @@
+name = "Cold Sweat and Aeronautics"
+filename = "coldsweat_aeronautics_compat-0.1.0.jar"
+side = "both"
+
+[download]
+hash = "21fd80e76d30c38dc719abe4ce612f5c22f74fef4ea5c15e7b69a839c915127fce33d05a546e966d564898da2bc7ffb08ea10f907b50e08b3a04ead42937930f"
+hash-format = "sha512"
+url = "https://cdn.modrinth.com/data/cLzb3PGg/versions/4nX8nGdu/coldsweat_aeronautics_compat-0.1.0.jar"
+
+[update.modrinth]
+mod-id = "cLzb3PGg"
+version = "4nX8nGdu"

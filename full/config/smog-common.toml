@@ -1,0 +1,158 @@
+#Integration with other pollution mods
+[integration]
+	#With Pollution of the Realms installed, hand the pollution model over to it.
+	#Our own simulation, sources and effects switch off and the Air Scrubber removes
+	#adpother gas blocks instead. Turn off to run both models side by side.
+	deferToPollutionOfTheRealms = true
+
+#Built-in pollution model
+[simulation]
+	# Default: 100
+	# Range: 20 ~ 1200
+	tickInterval = 100
+	# Default: 10000.0
+	# Range: 100.0 ~ 1000000.0
+	maxPollution = 10000.0
+	# Default: 0.12
+	# Range: 0.0 ~ 1.0
+	spreadRate = 0.12
+	#Per second.
+	# Default: 0.0025
+	# Range: 0.0 ~ 1.0
+	decayRate = 0.0025
+	# Default: 0.02
+	# Range: 0.0 ~ 1.0
+	rainDecayBonus = 0.02
+	# Default: 1.5
+	# Range: 0.0 ~ 1000.0
+	vegetationAbsorption = 1.5
+
+[thresholds]
+	# Default: 400.0
+	# Range: 0.0 ~ 1000000.0
+	light = 400.0
+	# Default: 1800.0
+	# Range: 0.0 ~ 1000000.0
+	moderate = 1800.0
+	# Default: 4500.0
+	# Range: 0.0 ~ 1000000.0
+	heavy = 4500.0
+	# Default: 8000.0
+	# Range: 0.0 ~ 1000000.0
+	toxic = 8000.0
+
+[sources]
+	#Catch-all for mods nobody listed: any block entity whose state carries a boolean 'lit'
+	#set to true burns at this rate. Set to 0 to only use the explicit list below;
+	#an explicit entry always wins, so listing a block at 0 excludes it.
+	# Default: 3.0
+	# Range: 0.0 ~ 1000.0
+	autoDetectedLitRate = 3.0
+	#"<block id>=<pollution per second>", or "#<block tag>=<rate>".
+	#Only blocks with a block entity are scanned. A boolean 'lit' property gates the
+	#source on and off; Create's 'blaze' heat property scales it. Unknown ids are
+	#skipped, so listing mods you do not have is harmless.
+	##smog:polluting is empty by default and is the easy hook for datapacks and KubeJS.
+	emitters = ["#smog:polluting=6", "minecraft:furnace=4", "minecraft:blast_furnace=8", "minecraft:smoker=4", "minecraft:campfire=1", "minecraft:soul_campfire=1", "create:lit_blaze_burner=16", "createaddition:liquid_blaze_burner=16", "createdieselgenerators:burner=20", "createdieselgenerators:diesel_engine=45", "createdieselgenerators:large_diesel_engine=70", "createdieselgenerators:huge_diesel_engine=110", "create_smart_diesel_generator:smart_diesel_engine=45", "tfmg:industrial_blast_furnace=60", "tfmg:diesel_engine=45", "tfmg:coal_burner=20", "vintageimprovements:vacuum_chamber=6", "createbigcannons:blast_furnace=25", "farmersdelight:stove=2", "mekanismgenerators:heat_generator=8", "mekanismgenerators:gas_burning_generator=30", "immersiveengineering:diesel_generator=60", "immersiveengineering:blastfurnace=25"]
+
+[effects]
+	terrainDegradation = true
+	playerEffects = true
+
+[scrubber]
+	#Cleaning units per second at 64 RPM, scaling to 256 RPM.
+	# Default: 24.0
+	# Range: 0.0 ~ 10000.0
+	cleanRatePerSecond = 24.0
+	# Default: 24000
+	# Range: 1 ~ 10000000
+	cartridgeCapacity = 24000
+	# Default: 4
+	# Range: 1 ~ 100
+	brassCartridgeMultiplier = 4
+	# Default: 8.0
+	# Range: 0.0 ~ 1024.0
+	stressImpact = 8.0
+	#Pollution of the Realms mode: block radius searched for gas.
+	# Default: 7
+	# Range: 1 ~ 16
+	gasRadius = 7
+	#Pollution of the Realms mode: cleaning units spent per density step.
+	# Default: 40.0
+	# Range: 1.0 ~ 100000.0
+	gasStepCost = 40.0
+	#Pollution of the Realms mode: rate multiplier, since its pollution is counted on a different scale.
+	# Default: 12.0
+	# Range: 0.1 ~ 1000.0
+	adpotherRateMultiplier = 12.0
+	#Scrub the smog out of players and mobs standing in range, not just out of the world.
+	cleanEntities = true
+	# Default: 16
+	# Range: 1 ~ 1000
+	precisionCartridgeMultiplier = 16
+	#Rate multiplier while the scrubber has water to wet its filter with.
+	# Default: 1.6
+	# Range: 1.0 ~ 10.0
+	waterBoost = 1.6
+	#Millibuckets of water drunk per working second.
+	# Default: 4
+	# Range: 0 ~ 1000
+	waterPerSecond = 4
+	#Rate multiplier while the scrubber is riding a contraption, where it has no shaft to read a speed from.
+	# Default: 0.75
+	# Range: 0.0 ~ 100.0
+	contraptionRate = 0.75
+
+#Scrubbers joined side by side act as one panel, run by the block with the lowest coordinates
+[panel]
+	#Output per member. 1.0 means a 5x5 panel cleans as much as 25 lone scrubbers,
+	#on one filter instead of 25. Below 1.0 makes panels a convenience rather than a win.
+	# Default: 1.0
+	# Range: 0.1 ~ 10.0
+	efficiencyPerMember = 1.0
+	#Members counted before the search gives up.
+	# Default: 64
+	# Range: 1 ~ 1024
+	maxMembers = 64
+	#Members needed before the panel can reach up and break the cloud overhead. 25 is a 5x5.
+	# Default: 25
+	# Range: 1 ~ 1024
+	cloudReachMembers = 25
+	#Working radius of the middle block.
+	# Default: 12
+	# Range: 1 ~ 32
+	radius = 12
+	#Horizontal radius of the column it reaches up into to break up the cloud above.
+	# Default: 8
+	# Range: 1 ~ 24
+	skyRadius = 8
+
+#Flues stacked above a source send its output high and wide instead of into the chunk below
+[flue]
+	#Fraction of a source's output diverted per flue block above it.
+	# Default: 0.12
+	# Range: 0.0 ~ 1.0
+	divertPerBlock = 0.12
+	#Most that a stack of flues can ever divert.
+	# Default: 0.8
+	# Range: 0.0 ~ 1.0
+	maxDivert = 0.8
+	#How far up the flue column is followed.
+	# Default: 8
+	# Range: 1 ~ 64
+	maxHeight = 8
+	#Pollution of the Realms mode: how much a full-strength flue moves out of the chunk
+	#below it every second, on top of sweeping up the gas around the source.
+	# Default: 120.0
+	# Range: 0.0 ~ 100000.0
+	ventPerSecond = 120.0
+	#Pollution of the Realms mode: gas blocks a flue swallows per second, per block of column.
+	# Default: 12
+	# Range: 0 ~ 10000
+	capturePerSecondPerBlock = 12
+
+[respirator]
+	#Pollution a worn respirator pulls out of you per second. Costs one point of durability each time it does.
+	# Default: 40
+	# Range: 0 ~ 100000
+	reliefPerSecond = 40

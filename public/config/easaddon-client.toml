@@ -1,0 +1,26 @@
+#Volume of EAS alert sounds (0.0 = muted, 1.0 = full volume)
+# Default: 1.0
+# Range: 0.0 ~ 1.0
+alertVolume = 1.0
+#Use in-game time instead of real world time in alerts
+useIngameTime = false
+#Disable debug messages in the log
+disableDebugOutput = false
+#Volume of Tom TTS voice (0.0 = muted, 1.0 = full volume)
+# Default: 1.0
+# Range: 0.0 ~ 1.0
+tomVolume = 1.0
+#URL of the Tom TTS server.
+#Left alone, this tracks the recommended server published at ttsDiscoveryUrl.
+#Type your own address here and it will be treated as a deliberate choice and never overwritten.
+ttsServerUrl = "http://198.251.78.68:8080"
+#Endpoint publishing the recommended Tom TTS server, so the address can be moved
+#without shipping a mod update. Fetched once per launch, in the background.
+#Expected body: {"ttsServer": "http://host:port"}
+#Blank this to opt out of the lookup entirely.
+ttsDiscoveryUrl = "https://raw.githubusercontent.com/gavenisaweesome/easaddon-tts-server/main/tts-server.json"
+#Set automatically when you enter your own TTS server address.
+#While true, the discovery lookup will not touch ttsServerUrl.
+ttsServerUrlIsCustom = false
+#Replace the stock alert sound with the authentic NOAA Weather Radio 1050 Hz attention tone
+useNwrAttentionTone = true

@@ -1,0 +1,14 @@
+{
+  "selectedPack": "Breath of the Wild WIP-0.2.zip",
+  "useDebugHud": false,
+  "prettifyIdentifiers": true,
+  "audioNormalization": true,
+  "musicLoudnessBoost": {
+    "value": 0
+  },
+  "ambienceLoudnessBoost": {
+    "value": 0
+  },
+  "disableAmbience": false,
+  "disableTrueAdaptiveMusicButton": false
+}

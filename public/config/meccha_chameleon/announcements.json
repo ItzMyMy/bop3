@@ -1,0 +1,14 @@
+{
+  "enabled": true,
+  "intervalSeconds": 600,
+  "prefix": "\u00266[Meccha] \u0026r",
+  "messages": [
+    "\u0026aWelcome! \u0026fType \u0026e/meccha \u0026fto create or join a room and play.",
+    "\u0026b\u0026lEvents! \u0026fWe run big hide-and-seek nights \u00267(this Saturday is the next one)\u0026f. \u0026e100 slots, first come first served \u00267—\u0026f grab yours on [\u00269\u0026nDiscord\u0026r\u0026f](https://discord.gg/NxEFTr4Fv3)\u0026f.",
+    "\u0026bJoin the community \u0026 find teammates on [\u00269\u0026nDiscord\u0026r\u0026b](https://discord.gg/NxEFTr4Fv3)\u0026b!",
+    "\u0026dLove the game? Play the original on [\u00266\u0026nSteam\u0026r\u0026d](https://store.steampowered.com/app/4704690/MECCHA_CHAMELEON/)\u0026d.",
+    "\u0026fFound a bug? Report it on the [\u00269\u0026nDiscord\u0026r\u0026f](https://discord.gg/NxEFTr4Fv3) (read the guidelines first).",
+    "\u0026eTip: \u0026fpaint your body to match the room, strike a pose (R), then freeze!",
+    "\u0026aYou\u0027re a creator? \u0026fPlease credit the mod in your video description or pinned comment, and join our [\u00269\u0026nDiscord\u0026r\u0026f](https://discord.gg/NxEFTr4Fv3)! Thanks! \u0026d\u003c3"
+  ]
+}

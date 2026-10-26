@@ -1,0 +1,7 @@
+[visuals]
+	#[EXPERIMENTAL]
+	#If Create Train signals should show the Overlay on tracks at all times; False will only show them with relevant signal items (Create Wrench, Track, Extended Signals items)
+	alwaysDisplaySignalPlates = true
+	#[EXPERIMENTAL]
+	#If Tracks should also display the Track graph (similar to debug Track graphs in F3)
+	showTrackGraphsWhileUsingTracks = true

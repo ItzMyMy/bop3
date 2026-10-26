@@ -1,0 +1,12 @@
+name = "Very Simple Gravestones"
+filename = "conures-graves-1.0.2.jar"
+side = "both"
+
+[download]
+hash = "b19321480e4d0be3ed2049e7b661e436f815e333a9f411008e2cb9d0e99779f819d1d1fb995a7a790981e47731d1f9f770c8e145b02a50465fbbaa041bbf4f24"
+hash-format = "sha512"
+url = "https://cdn.modrinth.com/data/t59QoiU6/versions/lWeT2NJY/conures-graves-1.0.2.jar"
+
+[update.modrinth]
+mod-id = "t59QoiU6"
+version = "lWeT2NJY"

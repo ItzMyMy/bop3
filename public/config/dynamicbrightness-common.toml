@@ -1,0 +1,12 @@
+#How much the brightness will change depending on the environment
+# Default: 50
+# Range: 0 ~ 100
+eyeAdaptionRange = 50
+#How quickly will the brightness adapt to the environment
+# Default: 2
+# Range: 1 ~ 100
+eyeAdaptationSpeed = 2
+#How strongly will Dynamic Light mods affect dynamic brightness
+# Default: 50
+# Range: 0 ~ 100
+dynamicLightImpact = 50

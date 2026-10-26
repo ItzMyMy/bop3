@@ -1,0 +1,291 @@
+[wind]
+	#Average baseline wind speed in m/s.
+	# Default: 6.0
+	# Range: 0.0 ~ 60.0
+	baseWindSpeed = 6.0
+	#Hard cap on instantaneous wind speed in m/s.
+	# Default: 55.0
+	# Range: 1.0 ~ 120.0
+	maxWindSpeed = 55.0
+	#Global multiplier applied to all computed wind forces.
+	# Default: 1.0
+	# Range: 0.0 ~ 5.0
+	windScaleFactor = 1.0
+	#Multiplier for simulated and external wind. Commands bypass this multiplier, while local ocean exposure still applies.
+	# Default: 1.1
+	# Range: 0.5 ~ 2.0
+	automaticWindSpeedMultiplier = 1.1
+	#Open-water exposure multiplier. Deep oceans receive a small additional boost.
+	# Default: 1.45
+	# Range: 1.0 ~ 3.0
+	oceanWindMultiplier = 1.45
+	#Y below which surface friction fully applies.
+	# Default: 64.0
+	# Range: -64.0 ~ 320.0
+	altitudeWindFloor = 64.0
+	#Y above which wind reaches its full free-stream strength.
+	# Default: 200.0
+	# Range: 64.0 ~ 400.0
+	altitudeWindCeiling = 200.0
+	#Y where occasional broad high-altitude wind bands begin to affect the sky.
+	# Default: 128.0
+	# Range: 64.0 ~ 384.0
+	highAltitudeWindStart = 128.0
+	#Y where high-altitude wind bands reach their complete strength.
+	# Default: 220.0
+	# Range: 96.0 ~ 512.0
+	highAltitudeWindFull = 220.0
+	#Maximum multiplier inside the strongest occasional upper-atmosphere wind bands.
+	# Default: 2.75
+	# Range: 1.0 ~ 6.0
+	highAltitudeWindMaxMultiplier = 2.75
+	#Fraction of free-stream wind at ground level (terrain drag).
+	# Default: 0.45
+	# Range: 0.0 ~ 1.0
+	surfaceWindFraction = 0.45
+	#How much wind strengthens/weakens across a day (0..1).
+	# Default: 0.35
+	# Range: 0.0 ~ 1.0
+	diurnalAmplitude = 0.35
+	#Vertical thermal/updraft strength in hot regions, m/s.
+	# Default: 3.0
+	# Range: 0.0 ~ 20.0
+	thermalStrength = 3.0
+
+[contraptions]
+	#Enable opt-in windcatcher forces and restrained extreme-storm hull loads.
+	enableWindOnContraptions = true
+	#Server-authoritative mode: ambient wind applies shape drag to every Sable contraption instead of only Windcatcher-equipped vessels. Ordinary Create windmills stay unchanged.
+	globalWindAffectsAllContraptions = false
+	#Only aeronauticswinds:wind_sails blocks opt in; Create sails and propellers are excluded.
+	enableSailForces = true
+	# Default: 2.5
+	# Range: 0.0 ~ 5.0
+	sailForceMultiplier = 2.5
+	#Dedicated Windcatcher acceleration strength; does not affect hulls or projectiles.
+	# Default: 1.0
+	# Range: 0.1 ~ 8.0
+	windcatcherAccelerationMultiplier = 1.0
+	#Seconds for Windcatcher acceleration to ramp smoothly instead of engaging instantly.
+	# Default: 0.55
+	# Range: 0.1 ~ 6.0
+	windcatcherAccelerationRampSeconds = 0.55
+	#Aligned Windcatcher area needed per 100 occupied ship blocks for full wind speed. Weight raises the requirement.
+	# Default: 3.5
+	# Range: 0.5 ~ 30.0
+	windcatcherFullSpeedAreaPercent = 3.5
+	#Shape-drag coefficient. Ambient hull drag is only 10% of this in global affect-everything mode.
+	# Default: 0.8
+	# Range: 0.0 ~ 4.0
+	hullDragCoefficient = 0.8
+	# Default: 256.0
+	# Range: 1.0 ~ 4096.0
+	hullAreaCap = 256.0
+	#Ticks between loaded-plot scans for dedicated windcatcher blocks.
+	# Default: 80
+	# Range: 20 ~ 600
+	sailRescanInterval = 80
+	#Hard cap on wind acceleration in m/s^2 at base wind speed. Scales dynamically with actual wind speed.
+	# Default: 4.0
+	# Range: 0.05 ~ 30.0
+	maxWindAcceleration = 4.0
+	#Maximum effective sail lever arm in blocks before torque is capped.
+	# Default: 5.0
+	# Range: 0.0 ~ 32.0
+	maxWindTorqueLever = 5.0
+	#Fraction of computed sail-position torque applied to ships.
+	# Default: 0.35
+	# Range: 0.0 ~ 1.0
+	windTorqueResponse = 0.35
+	#Extra hull drag in severe storms, including on ships without windcatchers.
+	# Default: 0.12
+	# Range: 0.0 ~ 1.0
+	stormHullWindFactor = 0.12
+	#Share of one normal Windcatcher's Create stress capacity. RPM still equals wind speed.
+	# Default: 0.55
+	# Range: 0.05 ~ 2.0
+	windmillSuPerWindcatcher = 0.55
+	#Hard SU capacity ceiling for a Windcatcher windmill. Prevents large sail arrays from producing runaway stress.
+	# Default: 8192.0
+	# Range: 256.0 ~ 65536.0
+	windmillMaxStressCapacity = 8192.0
+	#Enable passive water drag, directional keels, and shaft-steered rudders for Sable vessels.
+	enableHydrodynamicSailing = true
+	#Strength of the directional sideways water resistance supplied by each Keel.
+	# Default: 18.0
+	# Range: 0.0 ~ 100.0
+	keelLateralDrag = 18.0
+	#Legacy compatibility value retained for existing configs. Keels are now strictly passive and never create thrust.
+	# Default: 1.25
+	# Range: 0.0 ~ 8.0
+	keelLiftStrength = 1.25
+	#Steering authority of each Rudder while the hull is moving through water.
+	# Default: 5.0
+	# Range: 0.0 ~ 30.0
+	rudderControlStrength = 5.0
+	#General water drag applied to immersed hydrodynamic control surfaces.
+	# Default: 0.45
+	# Range: 0.0 ~ 4.0
+	waterHullDrag = 0.45
+	#Additional storm load on Sable bodies without Windcatchers, useful for aircraft and airships in tornadoes.
+	# Default: 0.22
+	# Range: 0.0 ~ 2.0
+	stormNonSailWindFactor = 0.22
+	#Natural wind speed in m/s where non-Windcatcher Sable hulls begin receiving an extreme-weather load. Ordinary wind remains opt-in.
+	# Default: 28.0
+	# Range: 5.0 ~ 100.0
+	extremeSableWindThreshold = 28.0
+	#Maximum cloth blocks in one Yard-selected sail rig. Prevents accidental server-sized selections.
+	# Default: 256
+	# Range: 4 ~ 4096
+	maxSailRigArea = 256
+	#Base integrity of a Cotton Sail rig before prolonged seawater exposure destroys it.
+	# Default: 2400
+	# Range: 100 ~ 100000
+	cottonSailDurability = 2400
+	#Base integrity of a Canvas Sail rig. Canvas is deliberately much more durable.
+	# Default: 12000
+	# Range: 100 ~ 500000
+	canvasSailDurability = 12000
+	#Server-side rate multiplier for sail wear while cloth touches ocean water.
+	# Default: 1.0
+	# Range: 0.0 ~ 20.0
+	seawaterRotMultiplier = 1.0
+
+[weather]
+	enableWeatherRegions = true
+	# Default: 1024
+	# Range: 128 ~ 16384
+	weatherRegionSize = 1024
+	# Default: 0.5
+	# Range: 0.0 ~ 4.0
+	weatherChangeRate = 0.5
+	#Make rain, snow, and storm precipitation only fall directly beneath clouds and stop above cloud altitude.
+	rainOnlyBeneathClouds = true
+	#Allow intense sandstorms and blizzards to lift loose real blocks as falling blocks. Disabled by default.
+	enableStormBlockMovement = false
+	#Maximum real blocks lifted per player each weather-effects pass.
+	# Default: 2
+	# Range: 0 ~ 12
+	stormBlockMoveLimit = 2
+
+[ocean]
+	#Legacy option: apply atmospheric wind pushing to vanilla boats and rafts. Disabled by default.
+	enableOceanSailing = false
+	# Default: 1.0
+	# Range: 0.0 ~ 5.0
+	boatWindFactor = 1.0
+
+[sky]
+	#Enable wind glider aerodynamics for players using the Wind Rider item.
+	enableSkyEntityWind = true
+	# Default: 1.0
+	# Range: 0.0 ~ 5.0
+	skyEntityWindFactor = 1.0
+	#Hard limit on velocity wind may add to an Elytra flyer per tick, in blocks/tick.
+	# Default: 0.018
+	# Range: 0.0 ~ 0.08
+	maxElytraWindAcceleration = 0.018
+	#Prevent Wind Rider gliders from being boosted or damaged by fireworks.
+	preventWindRiderFireworks = true
+	#Standard horizontal cruising speed for the Wind Rider in blocks/tick (~8.4 m/s).
+	# Default: 0.42
+	# Range: 0.1 ~ 1.5
+	gliderCruiseSpeed = 0.42
+	#Gentle descent sink rate for the Wind Rider in blocks/tick (~2.2 m/s).
+	# Default: 0.11
+	# Range: 0.02 ~ 0.5
+	gliderSinkRate = 0.11
+	#Maximum horizontal forward speed gained when pitching down into a glide dive in blocks/tick.
+	# Default: 0.65
+	# Range: 0.2 ~ 2.0
+	gliderDiveSpeed = 0.65
+	#Minimum speed when holding sneak to flare / air-brake for precision landing in blocks/tick.
+	# Default: 0.18
+	# Range: 0.05 ~ 0.5
+	gliderAirBrakeSpeed = 0.18
+	#Enable stamina drain while gliding (Zelda/Genshin style). Disabled by default for unrestricted flight.
+	enableGliderStamina = false
+	#Duration of a full stamina bar in seconds when stamina is enabled.
+	# Default: 25.0
+	# Range: 5.0 ~ 300.0
+	gliderStaminaDurationSeconds = 25.0
+	#Allow campfires, lava, fire, and magma blocks to create ascending thermal updrafts for gliders.
+	enableCampfireUpdrafts = true
+	#Vertical height of the thermal updraft column above standard campfires/fires in blocks.
+	# Default: 24.0
+	# Range: 4.0 ~ 128.0
+	campfireUpdraftHeight = 24.0
+	#Vertical height of the thermal updraft column above hay-bale signal campfires in blocks.
+	# Default: 50.0
+	# Range: 8.0 ~ 256.0
+	signalFireUpdraftHeight = 50.0
+	#Upward vertical velocity applied by campfire thermal updrafts in blocks/tick.
+	# Default: 0.42
+	# Range: 0.05 ~ 1.5
+	campfireUpdraftStrength = 0.42
+	#Upward vertical velocity applied by lava thermal updrafts in blocks/tick.
+	# Default: 0.35
+	# Range: 0.05 ~ 1.5
+	lavaUpdraftStrength = 0.35
+	#Allow deploying the glider if the Wind Rider is anywhere in inventory or hands, without needing to occupy the chest armor slot.
+	allowInventoryGliderDeploy = true
+	#Allow wind to deflect vanilla and modded projectiles. Disabled by default.
+	enableProjectileWind = false
+	#Crosswind strength for ordinary projectiles. One is still intentionally subtle.
+	# Default: 0.12
+	# Range: 0.0 ~ 5.0
+	projectileWindFactor = 0.12
+	#Fraction of vertical wind applied to projectiles. Zero prevents storms forcing arrows downward.
+	# Default: 0.0
+	# Range: 0.0 ~ 1.0
+	projectileVerticalWindFactor = 0.0
+	#Opt in to wind deflection for TaCZ bullets. Off by default so firearm aim remains exact.
+	enableTaczBulletWind = false
+	#TaCZ bullet crosswind multiplier when TaCZ bullet wind is enabled.
+	# Default: 0.02
+	# Range: 0.0 ~ 1.0
+	taczBulletWindFactor = 0.02
+	#Apply wind pushing to Immersive Aircraft vehicles. Disabled by default.
+	enableImmersiveAircraftWind = false
+
+[compatibility]
+	#Use ProtoManly Weather, Weather2, or Simple Clouds as the authoritative wind source when installed.
+	preferExternalWeatherWind = true
+	#Conversion multiplier from ProtoManly Weather's wind vector to m/s.
+	# Default: 1.0
+	# Range: 0.0 ~ 20.0
+	pmWeatherWindScale = 1.0
+	#Conversion from Weather2's normalized wind speed to m/s.
+	# Default: 20.0
+	# Range: 0.0 ~ 100.0
+	weather2WindScale = 20.0
+	#Conversion from Simple Clouds' cloud speed to m/s. Its cloud direction also becomes wind direction.
+	# Default: 6.0
+	# Range: 0.0 ~ 100.0
+	simpleCloudsWindScale = 6.0
+	#Mirror /aeroweather and /aerowind changes into installed weather mods.
+	syncExternalWeatherCommands = true
+	#Continuously align Simple Clouds movement with the authoritative wind source.
+	syncExternalCloudMovement = true
+	#Ticks between external cloud movement synchronization passes.
+	# Default: 20
+	# Range: 5 ~ 200
+	externalWeatherSyncInterval = 20
+	#Recognize PMWeather supercells/cyclones and Weather2 tornado stages as local disasters.
+	enableExternalDisasterWind = true
+	#Vertical updraft added to external tornado-strength horizontal wind above the extreme threshold.
+	# Default: 0.16
+	# Range: 0.0 ~ 1.0
+	externalDisasterUpdraftStrength = 0.16
+	#Maximum bounded tornado updraft contributed by this compatibility layer, in m/s.
+	# Default: 7.0
+	# Range: 0.0 ~ 30.0
+	maxExternalDisasterUpdraft = 7.0
+
+[heat]
+	#Expose regional heat buoyancy through the simulation API; this does not directly push Sable ships.
+	enableHeatBuoyancy = true
+	# Default: 1.2
+	# Range: 0.0 ~ 20.0
+	heatBuoyancyPerThousand = 1.2

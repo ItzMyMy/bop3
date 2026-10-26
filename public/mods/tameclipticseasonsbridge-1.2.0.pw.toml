@@ -1,0 +1,12 @@
+name = "TAM Ecliptic Seasons Bridge"
+filename = "tameclipticseasonsbridge-1.2.0.jar"
+side = "both"
+
+[download]
+hash = "1f524e5648df4a713cc0679d68543a9ab598258fac802c028ea73253fa7f155c695934898df2481fba889f6de0d28f859358eb0cc79903a011c090af7118bc16"
+hash-format = "sha512"
+url = "https://cdn.modrinth.com/data/cfUwheE4/versions/XzyHizTd/tameclipticseasonsbridge-1.2.0.jar"
+
+[update.modrinth]
+mod-id = "cfUwheE4"
+version = "XzyHizTd"

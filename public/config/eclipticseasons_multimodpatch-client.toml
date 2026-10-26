@@ -1,0 +1,19 @@
+#Presence Footsteps
+[presencefootsteps]
+	Enable = true
+
+#Pretty Rain
+[particlerain]
+	Enable = true
+	#Change the amount of particles when raining.
+	ChangeAmount = true
+
+#Create
+[create]
+	#Render seasonal snow on exposed Create contraption blocks.
+	Enable = true
+
+#Ambient Sounds
+#The mod is no longer maintained for version 1.20, so we need a mixin to make the sounds work properly during snowfall.
+[ambientsounds]
+	Enable = true

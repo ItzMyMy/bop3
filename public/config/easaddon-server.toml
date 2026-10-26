@@ -1,0 +1,136 @@
+#When true (default), only server operators (permission level 2+) can create, delete, or
+#modify towns via /easaddon town commands. Set to false to allow any player to run those
+#commands - useful when LuckPerms or another permission plugin is not correctly granting
+#op-level access to trusted players.
+townCreationRequiresOp = true
+#Range in blocks for storm detection and alerts
+# Default: 512
+# Range: 256 ~ 2048
+radarDetectionRange = 512
+#Range that matches PMWeather's radar display range
+# Default: 1024
+# Range: 256 ~ 4096
+radarDisplayRange = 1024
+#How cyclones are named: AUTOMATIC, MANUAL, or DISABLED
+#Allowed Values: AUTOMATIC, MANUAL, DISABLED
+cycloneNamingMode = "AUTOMATIC"
+#Enable automatic outlook generation per Minecraft day (default: false)
+enableRiskAutomation = false
+#Controls how manual (WARNGEN) and automatic (SevereWatch) warnings interact.
+#  BOTH_ENABLED: both run independently (default)
+#  MANUAL_DISABLED: players can't issue warnings; only auto-watches run
+#  AUTO_DISABLED: auto-watches don't run; only manual issuance works
+#  AUTO_FALLBACK_WHEN_NO_TOWN_OPS_ONLINE: auto-watches run only when no town mayor/operator is online
+#Allowed Values: BOTH_ENABLED, MANUAL_DISABLED, AUTO_DISABLED, AUTO_FALLBACK_WHEN_NO_TOWN_OPS_ONLINE
+warningIssuanceMode = "BOTH_ENABLED"
+#When true, the Weather Channel on a TV only shows warnings whose issuing EAS block matches the TV's bound EAS block
+#(or are within range of it for auto-detected warnings). When false (default), the Weather Channel shows ALL warnings on the server.
+weatherChannelLocalCoverageOnly = false
+#Master switch: allow players to right-click EAS blocks to open the WarnGen GUI
+warngenEnabled = true
+#Require WARNGEN polygons to contain at least one active PMWeather storm
+warngenStormAnchoringRequired = true
+# Default: 3
+# Range: 3 ~ 32
+warngenMinVertices = 3
+# Default: 12
+# Range: 3 ~ 32
+warngenMaxVertices = 12
+#Max polygon area in chunk² (1 chunk = 256 blocks²). Default 8192 chunks² = 2,097,152 blocks² (65536×32).
+# Default: 65536
+# Range: 16 ~ 65536
+warngenMaxAreaChunks = 65536
+# Default: 8192
+# Range: 256 ~ 32768
+warngenMaxIssueRangeBlocks = 8192
+#Max squared distance (blocks²) between issuer and EAS block
+# Default: 64
+# Range: 4 ~ 4096
+warngenMaxBlockInteractRangeSqr = 64
+# Default: 360
+# Range: 1 ~ 1440
+warngenMaxDurationMinutes = 360
+# Default: 60
+# Range: 0 ~ 3600
+warngenPerPlayerCooldownSec = 60
+# Default: 3
+# Range: 1 ~ 32
+warngenMaxActivePerPlayer = 3
+# Default: 4096
+# Range: 0 ~ 32768
+warngenAlertToneRangeBlocks = 4096
+warngenEnforceConvex = true
+warngenAuditFileEnabled = true
+warngenPersistAcrossRestart = true
+#Half-width of the WarnGen drawing canvas in blocks (canvas = 2× this value on each axis).
+#Default 4096 → 8192×8192 block canvas. Increase for large-jurisdiction servers.
+# Default: 4096
+# Range: 512 ~ 65536
+warngenMapRangeBlocks = 4096
+#Jurisdiction is COUNTY-based: each NWS office's area is the set of counties assigned to it
+#(via /county assign or the county editor). The office of an EAS block is the office of the
+#county it sits in.
+#When true (and warngenAllowWarnOutsideOwnJurisdiction=false), STRICT enforcement applies:
+#  - A warning may only cover the issuing office's own counties.
+#  - With warngenTrimToCounties=true the polygon is clipped to those counties; otherwise rejected.
+#  - Warnings auto-expire when the anchored storm leaves the issuing office's counties.
+#  - No effect when the EAS block is not inside any office-owned county.
+warngenNWSJurisdictionEnforcement = false
+#When true (default), an operator may issue warnings beyond their own office's counties - into
+#local/unclaimed (un-assigned) counties and un-countied ground - but NOT into another office's
+#counties.
+#  - With warngenTrimToCounties=true the polygon is clipped to remove only foreign offices'
+#    counties (own + local area kept); otherwise it is rejected for entering a foreign county.
+#  - Warnings auto-expire when the anchored storm enters a foreign office's county.
+#When false, STRICT mode (see warngenNWSJurisdictionEnforcement): confined to own counties only.
+warngenAllowWarnOutsideOwnJurisdiction = true
+#When true, warning polygons are TRIMMED (clipped) to fit within the counties assigned to the
+#issuing NWS office, instead of being rejected for crossing a county boundary.
+#  - Applies to both manual (WarnGen) and automatic warnings.
+#  - The office is the one owning the county under the EAS block; un-owned 'local area' ground is kept.
+#  - If a warning lies entirely outside the office's counties it is still rejected/skipped.
+warngenTrimToCounties = false
+#Enable automatic Tornado Watch issuance once per Minecraft day when a Day1 SLGT+ SPC outlook covers a town.
+autoTornadoWatchEnabled = true
+#How often (in ticks) the auto-watch evaluator runs. Lower = more responsive, higher = lighter load.
+# Default: 100
+# Range: 20 ~ 1200
+watchEvaluatorTickInterval = 100
+#If true, auto-issued watches play the EAS alert beeps. Manual watches always play beeps.
+autoWatchPlayAlertTone = false
+#Allow players to manually issue Tornado or Severe Thunderstorm Watches from the SPC block GUI.
+manualTornadoWatchEnabled = true
+#Minimum Day1 SPC risk level that auto-issues a watch. 2=MRGL, 3=SLGT, 4=ENH, 5=MDT, 6=HIGH.
+#Default 3 (SLGT) matches real NWS practice; lower it for watches on more marginal days.
+# Default: 3
+# Range: 2 ~ 6
+autoWatchMinRiskLevel = 3
+
+[cycloneNames]
+	#Names starting with A for automatic naming
+	A = ["Alex", "Aria", "Atlas", "Aiden", "Aurora", "Amos", "Anika", "Asher", "Adela", "Apollo", "Alexis"]
+	B = ["Bella", "Bruno", "Bianca", "Blaze", "Bennett", "Brielle", "Boris", "Brooke", "Beck", "Balthazar", "Beckham"]
+	C = ["Caleb", "Cora", "Cassius", "Clara", "Cyrus", "Celeste", "Colton", "Carmen", "Calliope", "Chance", "Chloe"]
+	D = ["Dante", "Daisy", "Dominic", "Delilah", "Drake", "Dahlia", "Desmond", "Daphne", "Declan", "Dorian", "Diego"]
+	E = ["Elena", "Elias", "Ember", "Elliott", "Esther", "Everett", "Elio", "Esme", "Ezra", "Evangeline", "Emilia"]
+	F = ["Felix", "Freya", "Finn", "Flora", "Francis", "Fiona", "Forrest", "Faith", "Fletcher", "Farah"]
+	G = ["Gavin", "Greta", "Griffin", "Gemma", "Gideon", "Gloria", "Grant", "Gaia", "George", "Gwen"]
+	H = ["Hector", "Hazel", "Holden", "Helena", "Hudson", "Holly", "Harlan", "Hope", "Hugo", "Harmony", "Harry"]
+	I = ["Isaac", "Iris", "Ivan", "Indira", "Ian", "Isla", "Ignatius", "Imogen", "Ilya", "Ivory", "Iselle"]
+	J = ["Julian", "Jade", "Jasper", "Josephine", "Jonah", "June", "Joaquin", "Juno", "Jameson", "Jose"]
+	K = ["Kai", "Kara", "Keaton", "Kinsley", "Knox", "Kendra", "Kieran", "Kalani", "Kurtis", "Kiara", "Katie"]
+	L = ["Leo", "Luna", "Lucas", "Lorelei", "Landon", "Lyra", "Lawrence", "Lucille", "Lachlan", "Leona"]
+	M = ["Miles", "Mila", "Malcolm", "Marina", "Micah", "Maeve", "Marcus", "Magnolia", "Matteo", "Miriam", "Mary"]
+	N = ["Nathan", "Nora", "Nicholas", "Naomi", "Noel", "Nadia", "Nevin", "Nova", "Nelson", "Nina", "Nico"]
+	O = ["Oliver", "Ophelia", "Oscar", "Olive", "Orion", "Odette", "Owen", "Octavia", "Otis", "Oriana", "Opal"]
+	P = ["Parker", "Phoebe", "Preston", "Penelope", "Pierce", "Paige", "Pascal", "Primrose", "Philip", "Paloma", "Pierre"]
+	Q = ["Quentin", "Quinn", "Quincy", "Queenie", "Quade", "Qiana", "Quest", "Quella", "Quirin", "Quorra"]
+	R = ["Rowan", "Ruby", "Rafael", "Rosalie", "Reed", "Ramona", "Roman", "Rhea", "Ronan", "Ruth", "Rose"]
+	S = ["Sebastian", "Sienna", "Silas", "Stella", "Sawyer", "Seraphina", "Samuel", "Skye", "Solomon", "Sabrina", "Sean"]
+	T = ["Theodore", "Talia", "Tristan", "Tessa", "Tyler", "Thalia", "Tobias", "Temperance", "Trevor", "Tamsin", "Taylor"]
+	U = ["Uriel", "Uma", "Ulrich", "Unity", "Upton", "Ursa", "Urban", "Ulyssa", "Usher", "Una"]
+	V = ["Victor", "Violet", "Vincent", "Valeria", "Vaughn", "Vanessa", "Vance", "Veronica", "Vito", "Vera", "Vernon"]
+	W = ["William", "Willow", "Wesley", "Winter", "Warren", "Willa", "Walker", "Winona", "Wyatt", "Wren", "Walda"]
+	X = ["Xavier", "Xena", "Xander", "Xiomara", "Xerxes", "Xyla", "Xavian", "Xanthe", "Xeno", "Xaria"]
+	Y = ["Yosef", "Yara", "Yannick", "Yvette", "York", "Yasmin", "Yuri", "Yvonne", "Yarden", "Yuna"]
+	Z = ["Zachary", "Zara", "Zane", "Zinnia", "Zephyr", "Zelda", "Zeke", "Zariah", "Zion", "Zora"]

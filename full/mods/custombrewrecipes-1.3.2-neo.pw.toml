@@ -1,0 +1,12 @@
+name = "CustomBrewRecipes"
+filename = "custombrewrecipes-1.3.2-neo.jar"
+side = "both"
+
+[download]
+hash = "c0695ca6d98fd5a2f87a9c63b17aeb359ea44b98c634e8e980aa035377164cf957ee80fcb548c7bbea477cd501d3666e3820492edd7fd75eaa9de7ed0be8fc00"
+hash-format = "sha512"
+url = "https://cdn.modrinth.com/data/Kuz8xrPR/versions/KAqCPWpp/custombrewrecipes-1.3.2-neo.jar"
+
+[update.modrinth]
+mod-id = "Kuz8xrPR"
+version = "KAqCPWpp"

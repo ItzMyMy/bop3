@@ -1,0 +1,17 @@
+#Band-limit record audio coming out of radio speakers so it sounds like a radio.
+radioFilter = true
+#Volume multiplier for records heard through radio speakers.
+# Default: 1.0
+# Range: 0.0 ~ 2.0
+speakerVolume = 1.0
+#How far (blocks) a radio speaker playing a record can be heard.
+# Default: 24
+# Range: 4 ~ 128
+speakerRadius = 24
+#Stop a radio stream after this many ticks without an update from the server.
+# Default: 60
+# Range: 20 ~ 1200
+streamTimeoutTicks = 60
+#Set once the built-in Create-style Simple Radio pack has been switched on by default.
+#Set to false to have it switched on again at next launch.
+createStylePackApplied = true

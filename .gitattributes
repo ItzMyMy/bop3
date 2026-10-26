@@ -1,2 +1,2 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Store every file byte-for-byte: packwiz checks file hashes, so line endings must never be converted.
+* -text

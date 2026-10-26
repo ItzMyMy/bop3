@@ -1,0 +1,12 @@
+name = "Cold Sweat: Altitude"
+filename = "coldsweat_altitude-0.8.1.jar"
+side = "both"
+
+[download]
+hash = "9843d94db706f8fc076185ec560c2a491e929901b91ac98eb7e0168cf8c7051c3c5493448b89b6cd679da885667998d0d1958ac7746f59ae933295dd46096ef5"
+hash-format = "sha512"
+url = "https://cdn.modrinth.com/data/uicjJQyO/versions/fLWjJt6n/coldsweat_altitude-0.8.1.jar"
+
+[update.modrinth]
+mod-id = "uicjJQyO"
+version = "fLWjJt6n"

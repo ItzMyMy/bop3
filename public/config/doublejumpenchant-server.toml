@@ -1,0 +1,32 @@
+#Jump boost values for each enchantment level.
+#The number of entries defines how many book levels are active.
+#Example: [0.38, 0.47, 0.54]
+levelBoosts = [0.38, 0.47, 0.54]
+#If true, two identical Double Jump books can be combined on an anvil into the next level.
+allowBookUpgrades = true
+#Experience level cost of combining two Double Jump books into the next level.
+# Default: 8
+# Range: > 0
+anvilUpgradeExperienceCost = 8
+#If true, Double Jump becomes a treasure-only enchantment and cannot be obtained from the enchanting table.
+treasureOnlyEnchantment = false
+#If true, Double Jump enchanted books can appear in configured treasure chest loot tables.
+treasureBooksEnabled = true
+#Chance per configured loot table roll to add Double Jump books. 0.0 disables drops, 1.0 is guaranteed.
+# Default: 0.12
+# Range: 0.0 ~ 1.0
+treasureBookChance = 0.12
+#Minimum number of Double Jump books to add when the treasure book roll succeeds.
+# Default: 1
+# Range: > 0
+treasureBookMinRolls = 1
+#Maximum number of Double Jump books to add when the treasure book roll succeeds.
+# Default: 1
+# Range: > 0
+treasureBookMaxRolls = 1
+#Weighted level selection for treasure books.
+#Entry 1 controls level 1, entry 2 controls level 2, etc.
+#Example: [6, 3, 1] makes level 1 common, level 3 rare.
+treasureBookLevelWeights = [6, 3, 1]
+#Loot table ids where Double Jump books may appear.
+treasureBookLootTables = ["minecraft:chests/abandoned_mineshaft", "minecraft:chests/ancient_city", "minecraft:chests/bastion_treasure", "minecraft:chests/buried_treasure", "minecraft:chests/desert_pyramid", "minecraft:chests/end_city_treasure", "minecraft:chests/jungle_temple", "minecraft:chests/nether_bridge", "minecraft:chests/pillager_outpost", "minecraft:chests/ruined_portal", "minecraft:chests/shipwreck_treasure", "minecraft:chests/simple_dungeon", "minecraft:chests/stronghold_corridor", "minecraft:chests/stronghold_crossing", "minecraft:chests/stronghold_library", "minecraft:chests/underwater_ruin_big", "minecraft:chests/woodland_mansion"]

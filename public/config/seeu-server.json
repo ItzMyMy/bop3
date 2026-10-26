@@ -1,0 +1,8 @@
+{
+  "configVersion": 4,
+  "enabled": true,
+  "updateIntervalTicks": 2,
+  "maxRenderDistanceBlocks": 8192,
+  "minimumProxyDistanceBlocks": 0,
+  "sendSpectators": false
+}

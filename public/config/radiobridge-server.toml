@@ -1,0 +1,30 @@
+[harmonics]
+	#Let Create Harmonics record players be heard by Simple Radio microphones and radios.
+	broadcastRecordPlayers = true
+	#Ticks between broadcast refreshes. Clients drop a stream they haven't heard about for 'streamTimeoutTicks'.
+	# Default: 10
+	# Range: 1 ~ 100
+	broadcastIntervalTicks = 10
+
+[power]
+	#Forge Energy upkeep per tick for Simple Radio blocks. 0 = the block works without power.
+	#Feed them with Power Grid's Device Connector (or any FE source).
+	#FE buffer inside each radio block.
+	# Default: 10000
+	# Range: 100 ~ 1000000
+	bufferCapacity = 10000
+	# Default: 20
+	# Range: 0 ~ 100000
+	transmitterUpkeep = 20
+	# Default: 10
+	# Range: 0 ~ 100000
+	receiverUpkeep = 10
+	# Default: 0
+	# Range: 0 ~ 100000
+	speakerUpkeep = 0
+	# Default: 0
+	# Range: 0 ~ 100000
+	microphoneUpkeep = 0
+	# Default: 0
+	# Range: 0 ~ 100000
+	radioUpkeep = 0

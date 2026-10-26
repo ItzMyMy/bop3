@@ -1,0 +1,12 @@
+name = "Death coordinates"
+filename = "deathcoordinates-1.0-neoforge-1.21.1.jar"
+side = "both"
+
+[download]
+hash = "e86a1ccee1fcc4d943b239a1351753b6beb5ce534930b2f84639b558aea4555ebdb827528c0b9b2dde517396de4e2cd833a33dee19eacfdc33ddbff9e86e35d8"
+hash-format = "sha512"
+url = "https://cdn.modrinth.com/data/ytDPhLYk/versions/41moeLJg/deathcoordinates-1.0-neoforge-1.21.1.jar"
+
+[update.modrinth]
+mod-id = "ytDPhLYk"
+version = "41moeLJg"

@@ -1,0 +1,12 @@
+name = "emf_compat_core_neoforge_1.21.1_2.3.1"
+filename = "emf_compat_core_neoforge_1.21.1_2.3.1.jar"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/hbGct5uU/versions/KenE2i4P/emf_compat_core_neoforge_1.21.1_2.3.1.jar"
+hash-format = "sha512"
+hash = "a21b786d795faf0abecc4483e2fa5a47c829a095ad894901cb41632b7936bb31acf3f6d72a18460f98e3d145732687497e9b8119c2dd21e552ca3a5c1a329578"
+
+[update.modrinth]
+mod-id = "hbGct5uU"
+version = "KenE2i4P"

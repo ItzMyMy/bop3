@@ -1,0 +1,292 @@
+#Ragdoll-on-tilt options
+[ragdoll]
+	#Force players into ragdoll when the sub-level they stand on tilts past the threshold.
+	ragdollEnabled = true
+	#Base tilt angle, in degrees away from level, at which a WALKING player ragdolls.
+	#Standing still raises this threshold; sprinting lowers it (see the values below).
+	# Default: 50.0
+	# Range: 0.0 ~ 90.0
+	ragdollAngle = 50.0
+	#Degrees ADDED to the threshold while standing still (harder to fall when planted).
+	# Default: 10.0
+	# Range: 0.0 ~ 45.0
+	standingStillAngleBonus = 10.0
+	#Degrees SUBTRACTED from the threshold while sprinting (easier to fall when running).
+	# Default: 10.0
+	# Range: 0.0 ~ 45.0
+	sprintingAngleReduction = 10.0
+
+#Ragdoll flailing — limbs whip around while airborne, purely for juice
+[flail]
+	#Make a conscious ragdolled player's arms and legs flail while airborne
+	#(falling, or launched by an explosion). Unconscious players stay limp.
+	flailEnabled = true
+	#Overall strength of the flailing torque. Higher = wilder limbs.
+	#First-guess default; tune to taste in-game.
+	# Default: 1.0
+	# Range: 0.0 ~ 10.0
+	flailStrength = 1.0
+
+#Knockback — hitting a ragdoll shoves it, and can knock it off balance
+[knockback]
+	#Let a hit shove a ragdoll: the blow pushes the body the way it was swung and tips it
+	#off its feet, based on which part was struck and from where. Works with plain vanilla
+	#melee and with combat overhauls like Better Combat alike, with no hard dependency.
+	knockbackEnabled = true
+	#Overall strength of the shove. Higher = harder knockback and easier to topple.
+	#First-guess default; tune to taste in-game.
+	# Default: 1.0
+	# Range: 0.0 ~ 10.0
+	knockbackStrength = 1.0
+	#Scale the shove by the damage dealt, so a heavy weapon knocks harder than a fist.
+	#Disable for a fixed shove regardless of the weapon used.
+	knockbackScaleWithDamage = true
+
+#What a ragdolled player can still do to everyone else
+[attacking]
+	#Let a ragdolled player keep swinging at things. Off by default: a body sprawled on
+	#the floor has no business landing a sword hit, and combat overhauls like Better
+	#Combat happily play the full attack animation and sound from down there. Blocks the
+	#left-click attack itself (and left-click mining with it, which the ragdoll mod uses
+	#that key for anyway); being hit, grabbing and dragging are untouched.
+	attackWhileRagdolled = false
+
+#Hurt proxy — keeps ragdolled players hittable by combat mods
+[hurtProxy]
+	#Put an invisible stand-in hitbox on every active ragdoll, so weapon mods that
+	#find targets by scanning for entities (Better Combat and friends) can hit a
+	#ragdolled player. Vanilla reaches a ragdoll by clicking its part blocks, which
+	#those mods never do — without this, going ragdoll makes you immune to them.
+	#Damage is passed straight to the player: PVP rules, armour and hit-immunity
+	#frames all still apply.
+	hurtProxyEnabled = true
+	#Send mobs that go for a ragdolled player at the body itself, so they walk to
+	#where it actually lies and can land a blow on it — a ragdolled player's own
+	#entity is a half-millimetre speck parked at their anchor, which mobs struggle
+	#to reach. Whether a mob is willing to attack you at all is untouched; this only
+	#redirects one it already chose. Pursuit is handed back when you stand up, so
+	#going ragdoll is not a way to shake off a chase.
+	hurtProxyMobsTarget = true
+	#How far, in blocks, the stand-in hitbox reaches past the body's limbs.
+	#Higher = easier to hit a sprawled body, but sloppier around it.
+	# Default: 0.35
+	# Range: 0.0 ~ 1.5
+	hurtProxyPadding = 0.35
+
+#Offline ragdolls — a logged-off player's body stays behind as a lootable ragdoll
+[offlineRagdoll]
+	#When a player logs out, leave their body in the world as an unconscious ragdoll that
+	#other players can loot (right-click to open its inventory, shift to grab everything).
+	#When the player logs back in they return to the body with whatever inventory is left.
+	#Compatible with Curios. Turning this off stops NEW offline ragdolls from being created;
+	#any already left behind are still returned to their owner on login, so nothing is lost.
+	offlineRagdollEnabled = true
+
+#Unconsciousness — being knocked out cold instead of killed, and what others
+#can do to a body that is out cold (loot it, feed it).
+[unconscious]
+	#A blow that would kill a player, but is small relative to their maximum health,
+	#knocks them out instead of killing them: they stay alive as a limp, unconscious
+	#ragdoll. A player who is ALREADY unconscious always dies for real, whatever the
+	#damage — so finishing someone off still works. Damage types that bypass
+	#invulnerability (/kill, the void) always kill too.
+	knockoutInsteadOfDeath = true
+	#How big the killing blow may be, as a fraction of the victim's MAXIMUM health,
+	#to knock out rather than kill. Measured on the damage actually taken, after armor,
+	#enchantments, resistance and absorption. 0.5 = a hit of up to half your max health
+	#(10 damage at 20 max health) knocks you out; anything bigger kills outright.
+	# Default: 0.5
+	# Range: 0.0 ~ 1.0
+	knockoutDamageFraction = 0.5
+	#Health a knocked-out player is left on (they were on zero). Kept low so they are
+	#still one hit from death while they lie there.
+	# Default: 1.0
+	# Range: 0.5 ~ 1024.0
+	knockoutHealth = 1.0
+	#How long a knocked-out player stays unconscious before coming to on their own.
+	#0 = never wake up by themselves (they stay down until something else wakes them,
+	#e.g. /offbalance unconscious <player> false).
+	# Default: 30
+	# Range: 0 ~ 3600
+	knockoutSeconds = 30
+	#An unconscious player who is healed back up to at least this fraction of their
+	#MAXIMUM health comes to on their own, whatever their wake-up timer says (being
+	#patched up wakes you). Checked against their current health, so it only matters
+	#once someone (or natural regen) has healed them above the low health a knockout
+	#leaves them on. Set to 0 to disable waking on health. Does not affect players an
+	#addon has 'downed' — that mod owns their recovery.
+	# Default: 0.5
+	# Range: 0.0 ~ 1.0
+	wakeHealthFraction = 0.5
+	#Give unconscious players the Blindness effect, so being out cold looks and feels
+	#like it from the inside instead of just being a camera lying on the floor.
+	unconsciousBlindness = true
+	#Let other players go through an unconscious player's inventory: shift-right-click
+	#the body to open it, and take or put back whatever you like (Curios slots included).
+	#Works on a knocked-out player who is still online AND on the body a logged-off player
+	#leaves behind — being logged off is just one way of being unconscious. Anything left
+	#in an offline body is handed to its owner when they log back in.
+	unconsciousInventoryAccess = true
+	#Let other players force-feed an unconscious player: right-click the body holding
+	#any food, potion or other consumable and it is eaten/drunk by the body, with all of
+	#the item's normal effects. Needs the victim to be online (an offline body has no
+	#one home to feed).
+	forceFeedEnabled = true
+
+#Death corpses — when a player actually dies (a knockout was not possible), their body
+#stays behind as a ragdoll holding everything that would have dropped, to be recovered.
+[deathCorpse]
+	#On death, leave the player's body in the world as a ragdoll corpse holding every item
+	#that would have dropped (vanilla inventory + Curios + Accessories), instead of
+	#scattering it on the ground. Shift-right-click the corpse to take your items back;
+	#you can only take from a corpse, never add to it. A corpse is only created for a real
+	#death — a blow small enough to knock you out cold instead never makes one. Remove any
+	#other corpse mod (e.g. sable-ragdoll-corpse) so bodies aren't spawned twice.
+	deathCorpseEnabled = true
+	#How many hits a corpse takes before it is destroyed and its remaining items scatter
+	#on the ground. Each hit also shoves the body a little. Works with plain vanilla melee
+	#and with combat overhauls like Better Combat alike.
+	# Default: 5
+	# Range: 1 ~ 100
+	deathCorpseHitsToDestroy = 5
+	#Spawn a corpse even when nothing dropped (e.g. the keepInventory gamerule is on, or
+	#an empty inventory). Off by default so keepInventory doesn't litter the world with
+	#empty bodies.
+	deathCorpseSpawnEmpty = false
+
+#Active balance — conscious ragdolls fight to stay standing (Euphoria-style)
+[balance]
+	#Conscious ragdolled players actively struggle to stay upright: legs step to catch
+	#the fall, the head is held level, and a stably standing body gets back up.
+	balanceEnabled = true
+	#Muscle strength scale for the joint motors (legs/arms/neck) while balancing.
+	#Higher = snappier, more coordinated recovery; lower = drunker.
+	# Default: 1.0
+	# Range: 0.0 ~ 6.0
+	balanceStrength = 1.0
+	#How hard the legs can push against the ground, in multiples of the base cap
+	#(~1.7x body weight per planted leg). Legs only push while a foot touches ground,
+	#so this can never levitate a body.
+	# Default: 1.0
+	# Range: 0.0 ~ 6.0
+	legStrength = 1.0
+	#Strength of the torso-righting 'core muscles', the main thing keeping a balancing
+	#ragdoll's torso upright (the legs alone don't right it). 1.0 stands firm; lower is
+	#drunker/floppier; 0 disables righting entirely (the torso just folds over).
+	# Default: 1.0
+	# Range: 0.0 ~ 6.0
+	uprightAssist = 1.0
+	#On a tilted sub-level, treat the DECK as the floor: stand perpendicular to it and
+	#hold position, instead of trying to be world-upright and sliding downhill off it.
+	#Matches the tilted view/entity rendering. Disable for pure world-vertical balancing.
+	deckRelativeBalance = true
+	#Deck tilt (degrees from level) up to which the ragdoll fully holds its ground on the
+	#deck, stands on it and resists sliding. Below this it plants firmly.
+	# Default: 10.0
+	# Range: 0.0 ~ 90.0
+	deckHoldTiltDegrees = 10.0
+	#Deck tilt beyond which the ragdoll stops fighting and tumbles/slides down the slope
+	#(a genuine fall). Between hold and release the hold fades out. Must be >= the hold tilt.
+	# Default: 40.0
+	# Range: 0.0 ~ 90.0
+	deckReleaseTiltDegrees = 40.0
+	#Log ragdoll-brain telemetry (masses, state, speeds) once a second per ragdoll.
+	#Turn on when tuning or reporting balance problems.
+	debugLogging = false
+
+#Recovery gate — every condition under which a player may leave ragdoll mode
+#(standing back up, manually dismounting, or the safety-valve failsafe) is
+#independently toggleable and tunable here.
+[recovery]
+	#Master switch. While enabled, a player cannot leave ragdoll mode except through
+	#the rules below (auto stand-up, manual dismount, or the failsafe); the ragdoll mod's
+	#own auto-expiry timers are suppressed. While disabled, the ragdoll mod's stock
+	#rules apply (sneak-dismount after its own minDismountTicks/duration settings).
+	recoveryGateEnabled = true
+	#Ticks after any ragdoll ends before the tilt trigger will launch a new one for the
+	#same player — gives them a beat to scramble clear of a still-tilted floor.
+	# Default: 20
+	# Range: 0 ~ 200
+	releaseGraceTicks = 20
+	#On leaving ragdoll, snap the player's view to where the ragdoll's head was actually
+	#aiming (rather than the free-look camera direction it left the ragdoll with), so the
+	#camera picks up facing the way the body was pointing.
+	restoreViewOnExit = true
+
+	#Standing back up automatically once the body is stably on its feet.
+	[recovery.standUp]
+		#Let a stably standing ragdoll end automatically and pop the player back up.
+		#If disabled, standing up requires the manual dismount rules below (or the failsafe).
+		autoStandUpEnabled = true
+		#Maximum lean from vertical, in degrees, still counted as 'standing'.
+		# Default: 18.0
+		# Range: 0.0 ~ 90.0
+		standUpMaxTiltDegrees = 18.0
+		#Maximum center-of-mass speed (m/s) still counted as 'standing' (not still falling/sliding).
+		# Default: 0.3
+		# Range: 0.0 ~ 20.0
+		standUpMaxComSpeed = 0.3
+		#Maximum torso angular speed (rad/s) still counted as 'standing'.
+		# Default: 0.9
+		# Range: 0.0 ~ 60.0
+		standUpMaxSpin = 0.9
+		#How many consecutive ticks the 'standing' criteria above must hold before the
+		#player automatically gets back up.
+		# Default: 10
+		# Range: 1 ~ 200
+		standUpHoldTicks = 10
+		#For tilt-triggered ragdolls, require the floor that threw the player to have
+		#leveled back out before letting them auto-stand (otherwise they'd instantly
+		#re-trigger the tilt ragdoll). Ignored for ragdolls from other sources.
+		standUpRequireFloorStandable = true
+		#With the check above enabled, how many degrees below the tilt-ragdoll threshold
+		#the floor must be before auto stand-up is allowed (a safety margin).
+		# Default: 2.0
+		# Range: 0.0 ~ 45.0
+		standUpRelaunchMarginDegrees = 2.0
+
+	#Manually leaving ragdoll mode (sneak) while not stably standing.
+	[recovery.manualDismount]
+		#Let the player sneak-dismount once the criteria below hold, even if they never
+		#stand back up on their own (e.g. lying down at rest). If disabled, only auto
+		#stand-up or the failsafe can end the ragdoll.
+		manualDismountEnabled = true
+		#Require at least one foot touching ground to unlock manual dismount — i.e.
+		#forbid leaving ragdoll mode while airborne.
+		dismountRequireGrounded = false
+		#Maximum lean from vertical, in degrees, still allowed for manual dismount.
+		#180 = any orientation (lying down is fine); lower this to require near-standing.
+		# Default: 180.0
+		# Range: 0.0 ~ 180.0
+		dismountMaxTiltDegrees = 180.0
+		#Maximum speed (m/s) of the fastest-moving body part still allowed for manual
+		#dismount — i.e. forbid leaving ragdoll mode while still moving.
+		# Default: 0.5
+		# Range: 0.0 ~ 20.0
+		dismountMaxSpeed = 0.5
+		#Maximum angular speed (rad/s) of the fastest-spinning body part still allowed
+		#for manual dismount.
+		# Default: 0.8
+		# Range: 0.0 ~ 60.0
+		dismountMaxSpin = 0.8
+		#How many consecutive ticks the criteria above must hold before manual dismount
+		#unlocks.
+		# Default: 25
+		# Range: 1 ~ 400
+		dismountHoldTicks = 25
+		#Skip every criterion above while any part of the body is submerged in water:
+		#sneak dismounts immediately, matching stock Sable Ragdolls' water behavior.
+		dismountInstantInWater = true
+
+	#Safety valve so a player can never be stuck in ragdoll mode indefinitely.
+	[recovery.failsafe]
+		#Force-release a player who has been locked in ragdoll too long, regardless of
+		#stability (prevents softlocks from an unreachable stand-up/dismount state).
+		failsafeEnabled = true
+		#How long a player may be locked in ragdoll before the failsafe releases them.
+		# Default: 90
+		# Range: 5 ~ 600
+		failsafeSeconds = 90
+		#Only apply the failsafe to CONSCIOUS players. If disabled, unconscious players are
+		#also force-released after failsafeSeconds instead of staying down indefinitely.
+		failsafeRequireConscious = true
