@@ -8546,6 +8546,11 @@ file = "resourcepacks/cubic-sun-moon-v1.8.5.zip"
 hash = "c3712a3ba511d35201d44bafce16c9d36e7185d6743aab02207bda0d5d109ede"
 
 [[files]]
+file = "servers.dat"
+hash = "850353ed112fcf7ccba07160da016274ca0383fe81892619cf46c201e0989ef5"
+preserve = true
+
+[[files]]
 file = "shaderpacks/BSL_v10.1.8.zip"
 hash = "36b0a50ff7918bf10e9422c401d93779f9d0088a26acea975b435243f96930b5"
 

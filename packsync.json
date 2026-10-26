@@ -105,6 +105,7 @@
   "_preserve": "Files players may change: installed once, then never overwritten. Everything else is reset to the pack's copy on every launch.",
   "preserve": [
     "options.txt",
+    "servers.dat",
     "config/*client*",
     "config/iris*",
     "config/sodium*",
@@ -165,5 +166,12 @@
       "sha512": "2db769dd723f243a21e1881e7c9f825e9c193da6f2bed454b70cb6fa9e51c57f63fdcf017c0657bbd26f7bba30815413e27c74d3c7be0783390a96ee9baa4bf7"
     }
   ],
-  "server_zip": "C:/Users/Admin/Desktop/best-of-pack-3-server.zip"
+  "server_zip": "C:/Users/Admin/Desktop/best-of-pack-3-server.zip",
+  "_servers": "Server list players start with (servers.dat). Players keep their own list once they have one.",
+  "servers": [
+    {
+      "name": "Modded Basement",
+      "ip": "modded.thebasement.chat"
+    }
+  ]
 }

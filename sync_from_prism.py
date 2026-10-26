@@ -12,6 +12,8 @@ Usage: python sync_from_prism.py      then: git add -A, git commit, git push
 """
 import fnmatch, hashlib, io, json, os, shutil, subprocess, tomllib, urllib.request, zipfile
 
+import servers_dat
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 CFG = json.load(open(os.path.join(HERE, "packsync.json"), encoding="utf-8"))
 GAME = os.path.join(CFG["instance"], "minecraft")
@@ -157,7 +159,7 @@ for f in optional:
 
 def build(name):
     root = os.path.join(HERE, name)
-    for sub in ["mods"] + CFG["pack_dirs"] + ["options.txt"]:
+    for sub in ["mods"] + CFG["pack_dirs"] + ["options.txt", "servers.dat"]:
         p = os.path.join(root, sub)
         if os.path.isdir(p):
             shutil.rmtree(p)
@@ -190,6 +192,10 @@ def build(name):
     if os.path.exists(opts):
         text = "\n".join(l for l in open(opts, encoding="utf-8").read().splitlines() if not l.startswith("lastServer:"))
         open(os.path.join(root, "options.txt"), "w", encoding="utf-8", newline="\n").write(text + "\n")
+    # the pack's own server list, not the instance's: only the servers listed in packsync.json
+    if CFG.get("servers"):
+        servers_dat.save(os.path.join(root, "servers.dat"),
+                         [servers_dat.server(s["name"], s["ip"]) for s in CFG["servers"]])
 
     index_path = os.path.join(root, "index.toml")
     if not os.path.exists(index_path):
