@@ -1,0 +1,17 @@
+name = "Dynamic Brightness"
+filename = "DynamicBrightness-neoforge-1.3.1.jar"
+side = "client"
+
+[download]
+hash = "bddd39a8dac50561c9a8775e825d250a6b07474e2b3ae87ad8cf4b40144bd2e48aefdbf79c00a09305b3cc4c04f678df977142c769c884aade71ef617674216c"
+hash-format = "sha512"
+url = "https://cdn.modrinth.com/data/qTnNnvU0/versions/RkOABh7A/DynamicBrightness-neoforge-1.3.1.jar"
+
+[option]
+optional = true
+default = true
+description = "Adds eye adaption feature: brightness adapts to the environment."
+
+[update.modrinth]
+mod-id = "qTnNnvU0"
+version = "RkOABh7A"

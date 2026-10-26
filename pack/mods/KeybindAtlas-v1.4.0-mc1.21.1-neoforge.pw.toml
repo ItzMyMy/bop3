@@ -1,0 +1,17 @@
+name = "Keybind Atlas"
+filename = "KeybindAtlas-v1.4.0-mc1.21.1-neoforge.jar"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/fokFjwwh/versions/UbE4gXrR/KeybindAtlas-v1.4.0-mc1.21.1-neoforge.jar"
+hash-format = "sha512"
+hash = "7ff490f071c6f9befe6a6a79f198e89056ffe76cfac56db5b6f17fcfb76b10aa80ee89225ff54df35c24d85ea5aacec462b458f3258525ff6af972ddce03ef13"
+
+[option]
+optional = true
+default = true
+description = "Keybind overlay for modpacks that shows what every key does at a glance."
+
+[update.modrinth]
+mod-id = "fokFjwwh"
+version = "UbE4gXrR"

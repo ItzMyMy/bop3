@@ -1,0 +1,150 @@
+{
+ "1IjD5062": {
+  "description": "A Minecraft mod that allows for efficient connected textures",
+  "title": "Continuity"
+ },
+ "4XAuVkaI": {
+  "description": "Client side hit markers and sounds for all player projectiles: bows, snowballs, tridents, etc.",
+  "title": "Hit Marker"
+ },
+ "61PI8Hzj": {
+  "description": "Adds adorable atmospheric animals: birds, bugs, and bothersome creatures.",
+  "title": "Cosy Critters & Creepy Crawlies"
+ },
+ "AfB7upFS": {
+  "description": "Rethink your game window. Proper borderless mode and set a custom title and icon.",
+  "title": "True Window"
+ },
+ "BdT7bXL2": {
+  "description": "Fixes Punchy conflicts and bugs → TACZ, SuperbWarfare, Carry On, Create and more",
+  "title": "Don't Punch My TACZ"
+ },
+ "CZyWdBUo": {
+  "description": "25% faster rendering Geckolib entities",
+  "title": "GeckolibBetterFPS"
+ },
+ "DFqQfIBR": {
+  "description": "Completely Customize the way others see you play in Discord!",
+  "title": "CraftPresence"
+ },
+ "IhZuHxkl": {
+  "description": "Pretty Rain replaces the default weather with prettier particle effects. Port of Particle Rain from Fabric",
+  "title": "Pretty Rain"
+ },
+ "J9McOdzy": {
+  "description": "Makes Create animations work correctly with animated EMF player models.",
+  "title": "EMF Compat: Create"
+ },
+ "MPCX6s5C": {
+  "description": "Bringing first-person animations to the third-person",
+  "title": "Not Enough Animations"
+ },
+ "O7RBXm3n": {
+  "description": "Take control over your inventory. Sort. Move matching Items. Throw all. Locked slots. Gear sets! And much more.",
+  "title": "Inventory Profiles Next"
+ },
+ "PsGWhwc8": {
+  "description": "Makes Gliders work correctly with animated EMF player models.",
+  "title": "EMF Compat: Gliders"
+ },
+ "U9aIswpv": {
+  "description": "An easy-to-use widget-based UI library!",
+  "title": "Shown!"
+ },
+ "UVtY3ZAC": {
+  "description": "Provides a way to get enchantment descriptions from enchanted books.",
+  "title": "Enchantment Descriptions"
+ },
+ "XU9MYvTx": {
+  "description": "A mod that allows you to hear the sound of wind while riding an Aeronautics vehicle, with the volume dynamically adjusted based on the vehicle's speed and whether you are sheltered.",
+  "title": "Aeronautics Wind Sound"
+ },
+ "ZAhKrMSS": {
+  "description": "Presence Footsteps compatability for Sable / Create Aeronautics",
+  "title": "Presence Footsteps x Sable (Aeronautics Compat)"
+ },
+ "ZGxtWu73": {
+  "description": "Adds a dynamic camera tilt for the contraption from the Create Aeronautics mod",
+  "title": "Aeronautics Camera Sync"
+ },
+ "ZouiUX7t": {
+  "description": "It's what it says on the tin. A complete upgrade to Minecraft's SFX with over 170 new sound effects for UIs, items, blocks and more.",
+  "title": "Sounds"
+ },
+ "dCKRaeBC": {
+  "description": "Litematica unofficial (Neo)Forge port. A modern client-side schematic mod for Minecraft.",
+  "title": "Forgematica"
+ },
+ "eMSbM34C": {
+  "description": "Adds surface-based rolling and skidding sounds to Create: Aeronautics tires!",
+  "title": "Create: Rolling Tones"
+ },
+ "fM515JnW": {
+  "description": "#listentonature",
+  "title": "AmbientSounds"
+ },
+ "fokFjwwh": {
+  "description": "Keybind overlay for modpacks that shows what every key does at a glance.",
+  "title": "Keybind Atlas"
+ },
+ "hsPB5xMD": {
+  "description": "Adds animations to the hotbar to make it more immersive",
+  "title": "Immersive Hotbar"
+ },
+ "jCrJ4iGH": {
+  "description": "Jade Sable Compat (Create Aeronautics) is a NeoForge client compatibility mod for Minecraft 1.21.1.",
+  "title": "Jade Sable Compat"
+ },
+ "kepjj2sy": {
+  "description": "Highly configurable third person camera mod",
+  "title": "Shoulder Surfing Reloaded"
+ },
+ "lMVNnVJw": {
+  "description": "Fixes duplicated first-person weapon rendering when using Better Combat, Punchy, and shaders.",
+  "title": "Better Combat Punchy Fix"
+ },
+ "nUwwB5kx": {
+  "description": "Compatibility addon that makes Cool Rain Reforged rain sounds work with Sable structures, Create copycats and other modded blocks.",
+  "title": "Sable: Cool Rain"
+ },
+ "pYFUU6cq": {
+  "description": "Particular is a mod that enhances Minecraft's ambience with many hand-crafted visual effects.",
+  "title": "Particular ✨ Reforged"
+ },
+ "qTnNnvU0": {
+  "description": "Adds eye adaption feature: brightness adapts to the environment.",
+  "title": "Dynamic Brightness"
+ },
+ "qs2zRREk": {
+  "description": "Do you have too many keybinds but not enough physical keys for all of them? Are you tired of constantly changing rarely used keys to other bindings? Is it too hard to remember what each key does? Then this mod is for you.",
+  "title": "KeyBind Bundles"
+ },
+ "qyVF9oeo": {
+  "description": "A Minecraft mod that provides realistic sound attenuation, reverberation, and absorption through blocks.",
+  "title": "Sound Physics Remastered"
+ },
+ "skbyK9mL": {
+  "description": "Adds many new block sounds across Vanilla and Create",
+  "title": "Hi-Fi"
+ },
+ "uCdwusMi": {
+  "description": "Massively increase render distance without harming performance.",
+  "title": "Distant Horizons"
+ },
+ "xv94TkTM": {
+  "description": "Adds a search bar to the Key-Bindings menu",
+  "title": "Controlling"
+ },
+ "yBW8D80W": {
+  "description": "Adds dynamic lights to Minecraft as the most feature-complete and optimized dynamic lighting mod.",
+  "title": "LambDynamicLights - Dynamic Lights"
+ },
+ "ydZic5r4": {
+  "description": "Moves items smoothly in inventories",
+  "title": "Smooth Swapping"
+ },
+ "zV5r3pPn": {
+  "description": "Render the player skin layer in 3d!",
+  "title": "3D Skin Layers"
+ }
+}

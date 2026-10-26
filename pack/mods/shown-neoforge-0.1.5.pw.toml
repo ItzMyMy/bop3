@@ -1,0 +1,17 @@
+name = "Shown!"
+filename = "shown-neoforge-0.1.5.jar"
+side = "client"
+
+[download]
+hash = "e9495658642461b25024517547038460c22d03ed79bd9a89ea3767512a65b601d16da1eb503669798d0eab94c40f875ebbd24d19c5fc0aae3ab8a59ceff41880"
+hash-format = "sha512"
+url = "https://cdn.modrinth.com/data/U9aIswpv/versions/1u8Mfktz/shown-neoforge-0.1.5.jar"
+
+[option]
+optional = true
+default = true
+description = "An easy-to-use widget-based UI library!"
+
+[update.modrinth]
+mod-id = "U9aIswpv"
+version = "1u8Mfktz"

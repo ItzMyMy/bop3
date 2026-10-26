@@ -1,0 +1,17 @@
+name = "Punchy X Gliders"
+filename = "Punchy-Gliders-Compat-1.0.0.jar"
+side = "client"
+
+[download]
+hash = "1795c3807e19201153a919e324ae024b93706ad1"
+hash-format = "sha1"
+mode = "metadata:curseforge"
+
+[option]
+optional = true
+default = true
+description = "Punchy X Gliders"
+
+[update.curseforge]
+file-id = 9030651
+project-id = 1721366

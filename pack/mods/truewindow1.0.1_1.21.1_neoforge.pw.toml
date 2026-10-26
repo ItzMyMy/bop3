@@ -1,0 +1,17 @@
+name = "True Window"
+filename = "truewindow1.0.1_1.21.1_neoforge.jar"
+side = "client"
+
+[download]
+hash = "03ecbb684592f4149dbbe517771f359cf7fd64609c0f81337616783fc1a889bfaf37494f0ee9f5aa12efd2164b10339642c258db3c4a99c630ebecb7a34f1dfd"
+hash-format = "sha512"
+url = "https://cdn.modrinth.com/data/AfB7upFS/versions/FD1ci3E2/truewindow1.0.1_1.21.1_neoforge.jar"
+
+[option]
+optional = true
+default = true
+description = "Rethink your game window. Proper borderless mode and set a custom title and icon."
+
+[update.modrinth]
+mod-id = "AfB7upFS"
+version = "FD1ci3E2"

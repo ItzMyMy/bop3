@@ -1,8 +1,0 @@
-[recording]
-	#Controls how often Sable snapshot packets are saved into ReplayMod recordings.
-	#The value is measured in snapshot ticks: 1 records every snapshot, 20 records roughly once per second when snapshots arrive every game tick.
-	#Only movement snapshots are rate-limited. Initialization packets are always recorded.
-	#Higher values reduce replay size, but sublevels may take longer to realign.
-	# Default: 1
-	# Range: 1 ~ 200
-	snapshotIntervalTicks = 1

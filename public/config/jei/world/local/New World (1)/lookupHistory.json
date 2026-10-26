@@ -1,6 +1,0 @@
-[
-  {"version":1},
-  {"ingredient":{"id":"cold_sweat:chameleon_molt"},"type":"item_stack","bookmarkType":"INGREDIENT"},
-  {"ingredient":{"id":"cold_sweat:chameleon_chestplate","components":"{\"cold_sweat:armor_insulation\":{insulation:[]}}"},"type":"item_stack","bookmarkType":"INGREDIENT"},
-  {"ingredient":{"id":"createdieselgenerators:hammer"},"type":"item_stack","bookmarkType":"INGREDIENT"}
-]

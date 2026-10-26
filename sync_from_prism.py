@@ -1,7 +1,8 @@
-"""Turn the Prism instance into the two packwiz packs in this repo, as set in packsync.json.
+"""Turn the Prism instance into the packwiz pack in pack/, as set in packsync.json.
 
-  full/     every enabled mod, configs, resource packs, shaders
-  public/   mods that run on the server plus public_pack_keeps (sodium); no shaders
+Every enabled mod goes in. Client-only mods that no other mod needs become optional: players get a
+checkbox for each on first install (ticked unless listed in optional_off_by_default). Libraries, mods
+other mods depend on, keep_required and jars hosted here stay required, so unticking can't crash the game.
 
 Mods come from Prism's own metadata (mods/.index/*.pw.toml) where it has some. Jars without it are looked
 up on Modrinth by hash (cached in modrinth-matches.json); jars Modrinth doesn't know are copied in and
@@ -16,31 +17,45 @@ CFG = json.load(open(os.path.join(HERE, "packsync.json"), encoding="utf-8"))
 GAME = os.path.join(CFG["instance"], "minecraft")
 MODS = os.path.join(GAME, "mods")
 CACHE = os.path.join(HERE, "modrinth-matches.json")
+PROJECTS = os.path.join(HERE, "modrinth-projects.json")
 CLIENT_ONLY = set(CFG["client_only_mods"])
+KEEP_REQUIRED = set(CFG["keep_required"])
+OFF_BY_DEFAULT = set(CFG["optional_off_by_default"])
+BUILTIN = {"minecraft", "neoforge", "java", "forge", "fml", "javafml", "mixinextras"}
 
 
 def matches(rel, patterns):
     return any(fnmatch.fnmatch(rel, p) for p in patterns)
 
 
-def mod_ids(path):
-    """The jar's own mod ids, from its NeoForge or Fabric metadata."""
-    ids = set()
-    with zipfile.ZipFile(path) as z:
+def describe(data, depth=0):
+    """(own mod ids, ids provided incl. jar-in-jar, required mod ids) from a jar's NeoForge/Fabric metadata."""
+    own, requires = set(), set()
+    with zipfile.ZipFile(io.BytesIO(data)) as z:
         names = set(z.namelist())
         if "META-INF/neoforge.mods.toml" in names:
             try:
                 toml = tomllib.loads(z.read("META-INF/neoforge.mods.toml").decode("utf-8", "replace"))
-                ids |= {m.get("modId") for m in toml.get("mods", [])}
+                own |= {m.get("modId") for m in toml.get("mods", [])}
+                for deps in (toml.get("dependencies") or {}).values():
+                    for d in deps:
+                        if str(d.get("type", "required" if d.get("mandatory") else "optional")).lower() == "required":
+                            requires.add(d.get("modId"))
             except Exception:
                 pass
         if "fabric.mod.json" in names:
             try:
-                ids.add(json.loads(z.read("fabric.mod.json").decode("utf-8", "replace"), strict=False).get("id"))
+                own.add(json.loads(z.read("fabric.mod.json").decode("utf-8", "replace"), strict=False).get("id"))
             except Exception:
                 pass
-    ids.discard(None)
-    return ids
+        provides = set(own)
+        if depth < 2:
+            for n in names:
+                if n.startswith("META-INF/") and n.endswith(".jar"):
+                    provides |= describe(z.read(n), depth + 1)[1]
+    own.discard(None)
+    provides.discard(None)
+    return own, provides, requires - BUILTIN - {None}
 
 
 def toml_value(v):
@@ -53,12 +68,20 @@ def toml_value(v):
 
 
 def write_metafile(path, meta):
-    """Write a .pw.toml: top-level keys, then [download] and [update.<source>]."""
+    """Write a .pw.toml: top-level keys, then [download], [option] and [update.<source>]."""
     lines = [f"{k} = {toml_value(v)}" for k, v in meta.items() if not isinstance(v, dict)]
     lines += ["", "[download]"] + [f"{k} = {toml_value(v)}" for k, v in meta["download"].items()]
+    if "option" in meta:
+        lines += ["", "[option]"] + [f"{k} = {toml_value(v)}" for k, v in meta["option"].items()]
     for source, fields in meta.get("update", {}).items():
         lines += ["", f"[update.{source}]"] + [f"{k} = {toml_value(v)}" for k, v in fields.items()]
     open(path, "w", encoding="utf-8", newline="\n").write("\n".join(lines) + "\n")
+
+
+def modrinth(path, body=None):
+    req = urllib.request.Request("https://api.modrinth.com/v2/" + path, data=body and json.dumps(body).encode(),
+                                 headers={"Content-Type": "application/json", "User-Agent": "best-of-pack-3 sync"})
+    return json.load(urllib.request.urlopen(req))
 
 
 # ---- what's in the instance ---------------------------------------------------------------
@@ -69,9 +92,12 @@ for f in os.listdir(os.path.join(MODS, ".index")):
     prism[t.get("filename")] = t
 
 jars = sorted((f for f in os.listdir(MODS) if f.endswith(".jar")), key=str.lower)
-ids = {f: mod_ids(os.path.join(MODS, f)) for f in jars}
-client = {f for f in jars if ids[f] and ids[f] <= CLIENT_ONLY}
-public = {f for f in jars if f not in client or ids[f] & set(CFG["public_pack_keeps"])}
+info = {f: dict(zip(("ids", "provides", "requires"), describe(open(os.path.join(MODS, f), "rb").read())))
+        for f in jars}
+client = {f for f in jars if info[f]["ids"] and info[f]["ids"] <= CLIENT_ONLY}
+# a jar is needed when another enabled jar requires one of the mod ids it provides
+needed = {g for f in jars for g in jars
+          if g != f and info[f]["requires"] & info[g]["provides"]}
 
 # Jars Prism has no metadata for (or only CurseForge metadata): try Modrinth by sha512.
 cache = json.load(open(CACHE, encoding="utf-8")) if os.path.exists(CACHE) else {}
@@ -79,10 +105,7 @@ sha = {f: hashlib.sha512(open(os.path.join(MODS, f), "rb").read()).hexdigest()
        for f in jars if f not in prism or prism[f]["download"].get("mode") == "metadata:curseforge"}
 unknown = [h for h in sha.values() if h not in cache]
 if unknown:
-    req = urllib.request.Request("https://api.modrinth.com/v2/version_files",
-                                 data=json.dumps({"hashes": unknown, "algorithm": "sha512"}).encode(),
-                                 headers={"Content-Type": "application/json", "User-Agent": "best-of-pack-3 sync"})
-    found = json.load(urllib.request.urlopen(req))
+    found = modrinth("version_files", {"hashes": unknown, "algorithm": "sha512"})
     for h in unknown:
         v = found.get(h)
         cache[h] = None if not v else {
@@ -92,26 +115,47 @@ if unknown:
 
 
 def mod_entry(f):
-    """('meta', metafile dict) for a downloadable mod, or ('file', None) for a jar hosted in the repo."""
+    """Metafile dict for a downloadable mod, or None for a jar hosted in the repo."""
     side = "client" if f in client else "both"
     m = cache.get(sha.get(f, ""))
     if m:
-        return "meta", {"name": os.path.splitext(f)[0], "filename": f, "side": side,
-                        "download": {"url": m["url"], "hash-format": "sha512", "hash": sha[f]},
-                        "update": {"modrinth": {"mod-id": m["project"], "version": m["version"]}}}
+        return {"name": os.path.splitext(f)[0], "filename": f, "side": side,
+                "download": {"url": m["url"], "hash-format": "sha512", "hash": sha[f]},
+                "update": {"modrinth": {"mod-id": m["project"], "version": m["version"]}}}
     if f in prism:
         t = prism[f]
-        meta = {"name": t.get("name", f), "filename": f, "side": side,
+        return {"name": t.get("name", f), "filename": f, "side": side,
                 # Prism writes url = "" for CurseForge files resolved through the API; the installer wants it absent
                 "download": {k: v for k, v in t["download"].items() if v != "" and not (k == "mode" and v == "url")},
                 "update": t.get("update", {})}
-        return "meta", meta
-    return "file", None
+    return None
 
 
-# ---- writing a pack -----------------------------------------------------------------------
+entries = {f: mod_entry(f) for f in jars}
+optional = {f for f in client
+            if f not in needed and entries[f] and not info[f]["ids"] & KEEP_REQUIRED}
 
-def build(name, selection, with_shaders):
+# Titles and one-line descriptions for the checkboxes, from Modrinth (cached in modrinth-projects.json).
+projects = json.load(open(PROJECTS, encoding="utf-8")) if os.path.exists(PROJECTS) else {}
+wanted = sorted({entries[f]["update"]["modrinth"]["mod-id"] for f in optional
+                 if "modrinth" in entries[f]["update"]} - set(projects))
+if wanted:
+    for p in modrinth("projects?ids=" + urllib.request.quote(json.dumps(wanted))):
+        projects[p["id"]] = {"title": p["title"], "description": p["description"]}
+    json.dump(projects, open(PROJECTS, "w", encoding="utf-8"), indent=1, sort_keys=True, ensure_ascii=False)
+
+for f in optional:
+    meta = entries[f]
+    p = projects.get(meta["update"].get("modrinth", {}).get("mod-id"))
+    if p:
+        meta["name"] = p["title"]
+    meta["option"] = {"optional": True, "default": not info[f]["ids"] & OFF_BY_DEFAULT,
+                      "description": p["description"] if p else meta["name"]}
+
+
+# ---- writing the pack ---------------------------------------------------------------------
+
+def build(name):
     root = os.path.join(HERE, name)
     for sub in ["mods"] + CFG["pack_dirs"] + ["options.txt"]:
         p = os.path.join(root, sub)
@@ -122,23 +166,19 @@ def build(name, selection, with_shaders):
     os.makedirs(os.path.join(root, "mods"), exist_ok=True)
     if not os.path.exists(os.path.join(root, "pack.toml")):
         p = CFG["pack"]
-        subprocess.run([CFG["packwiz"], "init", "--name", p["name"] + ("" if name == "full" else " (public)"),
-                        "--author", p["author"], "--version", "1.0.0", "--mc-version", p["minecraft"],
-                        "--modloader", "neoforge", "--neoforge-version", p["neoforge"], "-y"],
-                       cwd=root, check=True, capture_output=True)
+        subprocess.run([CFG["packwiz"], "init", "--name", p["name"], "--author", p["author"], "--version", "1.0.0",
+                        "--mc-version", p["minecraft"], "--modloader", "neoforge", "--neoforge-version", p["neoforge"],
+                        "-y"], cwd=root, check=True, capture_output=True)
 
     hosted = []
-    for f in sorted(selection, key=str.lower):
-        kind, meta = mod_entry(f)
-        if kind == "meta":
-            write_metafile(os.path.join(root, "mods", os.path.splitext(f)[0] + ".pw.toml"), meta)
+    for f in jars:
+        if entries[f]:
+            write_metafile(os.path.join(root, "mods", os.path.splitext(f)[0] + ".pw.toml"), entries[f])
         else:
             shutil.copy2(os.path.join(MODS, f), os.path.join(root, "mods", f))
             hosted.append(f)
 
     for top in CFG["pack_dirs"]:
-        if top == "shaderpacks" and not with_shaders:
-            continue
         for dirpath, _, files in os.walk(os.path.join(GAME, top)):
             for f in files:
                 src = os.path.join(dirpath, f)
@@ -156,7 +196,9 @@ def build(name, selection, with_shaders):
         open(index_path, "w", encoding="utf-8", newline="\n").write('hash-format = "sha256"\n')
     subprocess.run([CFG["packwiz"], "refresh"], cwd=root, check=True, capture_output=True)
     mark_preserved(root)
-    print(f"{name}: {len(selection)} mods ({len(hosted)} hosted here: {', '.join(hosted) or 'none'})")
+    print(f"{name}: {len(jars)} mods, {len(optional)} optional "
+          f"({len([f for f in optional if f in OFF_BY_DEFAULT or info[f]['ids'] & OFF_BY_DEFAULT])} off by default), "
+          f"{len(hosted)} hosted here: {', '.join(hosted) or 'none'}")
 
 
 def mark_preserved(root):
@@ -184,5 +226,4 @@ def mark_preserved(root):
     print(f"  {count} files players keep their own copy of")
 
 
-build("full", set(jars), True)
-build("public", public, False)
+build("pack")

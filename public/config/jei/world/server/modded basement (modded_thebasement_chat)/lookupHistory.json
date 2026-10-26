@@ -1,7 +1,0 @@
-[
-  {"version":1},
-  {"ingredient":{"id":"biomeswevegone:dacite"},"type":"item_stack","bookmarkType":"INGREDIENT"},
-  {"ingredient":{"id":"biomeswevegone:cracked_dacite_bricks"},"type":"item_stack","bookmarkType":"INGREDIENT"},
-  {"ingredient":{"id":"biomeswevegone:dacite_bricks"},"type":"item_stack","bookmarkType":"INGREDIENT"},
-  {"ingredient":{"id":"biomeswevegone:dacite_cobblestone"},"type":"item_stack","bookmarkType":"INGREDIENT"}
-]

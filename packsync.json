@@ -73,10 +73,15 @@
     "truewindow",
     "unilib"
   ],
-  "_public": "The public pack has every mod that runs on the server, plus these client-only ones; no shaders.",
-  "public_pack_keeps": [
-    "sodium"
+  "_optional": "Client-only mods become checkboxes for players, except ones another mod needs, jars hosted in this repo, and keep_required. Ids in optional_off_by_default start unticked.",
+  "keep_required": [
+    "sodium",
+    "immediatelyfast",
+    "entityculling",
+    "badoptimizations",
+    "createbetterfps"
   ],
+  "optional_off_by_default": [],
   "pack_dirs": [
     "config",
     "defaultconfigs",

@@ -1,0 +1,17 @@
+name = "KeyBind Bundles"
+filename = "keybindbundles-1.3.1.jar"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/qs2zRREk/versions/29ZMr3Xd/keybindbundles-1.3.1.jar"
+hash-format = "sha512"
+hash = "b3e210cba5f761922fa0cb2e426587447f29c0090a6a5df9003dfc7d5ed6889aeb8554198a514d97daa9c785abff6476b40f331516170d2f149962c83d056415"
+
+[option]
+optional = true
+default = true
+description = "Do you have too many keybinds but not enough physical keys for all of them? Are you tired of constantly changing rarely used keys to other bindings? Is it too hard to remember what each key does? Then this mod is for you."
+
+[update.modrinth]
+mod-id = "qs2zRREk"
+version = "29ZMr3Xd"

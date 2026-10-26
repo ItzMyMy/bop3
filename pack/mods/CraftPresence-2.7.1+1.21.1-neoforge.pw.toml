@@ -1,0 +1,17 @@
+name = "CraftPresence"
+filename = "CraftPresence-2.7.1+1.21.1-neoforge.jar"
+side = "client"
+
+[download]
+hash = "d032b1699a5c83c144155c44909207bd9e2c4cfe0bc7d0703ecd48a793f6ad792821c68007ae9f8378e88e7a2c2844887edb0f2fce94ecbf9d880b5dfb1529e9"
+hash-format = "sha512"
+url = "https://cdn.modrinth.com/data/DFqQfIBR/versions/tjZKI2uh/CraftPresence-2.7.1%2B1.21.1-neoforge.jar"
+
+[option]
+optional = true
+default = true
+description = "Completely Customize the way others see you play in Discord!"
+
+[update.modrinth]
+mod-id = "DFqQfIBR"
+version = "tjZKI2uh"

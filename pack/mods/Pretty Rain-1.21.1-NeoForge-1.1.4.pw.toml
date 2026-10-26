@@ -1,0 +1,17 @@
+name = "Pretty Rain"
+filename = "Pretty Rain-1.21.1-NeoForge-1.1.4.jar"
+side = "client"
+
+[download]
+hash = "686d25d07f6ada4454d37a535d54a6f28efc252142d93e29b699ad7eb54f0499a7b8ba0fb7ee9e809445acd55abb937c646a24551c235b0689a9a4c131428140"
+hash-format = "sha512"
+url = "https://cdn.modrinth.com/data/IhZuHxkl/versions/CYizuwV6/Pretty Rain-1.21.1-NeoForge-1.1.4.jar"
+
+[option]
+optional = true
+default = true
+description = "Pretty Rain replaces the default weather with prettier particle effects. Port of Particle Rain from Fabric"
+
+[update.modrinth]
+mod-id = "IhZuHxkl"
+version = "CYizuwV6"

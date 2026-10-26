@@ -1,0 +1,17 @@
+name = "EMF Compat: Gliders"
+filename = "emf_compat_gliders_1.21.1_2.0.0.jar"
+side = "client"
+
+[download]
+hash = "cb4e97cf74e3082b6d2ee7371d464446d3fa24fe1a37b177ee01f41fbf727617de1fbc31e15e5738f462d59192c6d905f072d34200f13725c750177a43643ac0"
+hash-format = "sha512"
+url = "https://cdn.modrinth.com/data/PsGWhwc8/versions/cER4cs2Q/emf_compat_gliders_1.21.1_2.0.0.jar"
+
+[option]
+optional = true
+default = true
+description = "Makes Gliders work correctly with animated EMF player models."
+
+[update.modrinth]
+mod-id = "PsGWhwc8"
+version = "cER4cs2Q"

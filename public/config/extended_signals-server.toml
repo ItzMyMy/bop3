@@ -1,9 +1,0 @@
-[signals]
-	#Default scan distance for signalling, also changes brass signals reservation distance
-	# Default: 2048.0
-	# Range: 32.0 ~ 1.7976931348623157E308
-	defaultScanDistance = 2048.0
-	#Default scan distance for signalling, also changes brass signals reservation distance
-	# Default: 128.0
-	# Range: 16.0 ~ 1.7976931348623157E308
-	defaultMinScanDistance = 128.0

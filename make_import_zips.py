@@ -1,9 +1,9 @@
-"""Make the Prism import zips: instance settings + packwiz-installer-bootstrap.jar + a pre-launch command
+"""Make the Prism import zip: instance settings + packwiz-installer-bootstrap.jar + a pre-launch command
 that installs and updates the pack from GitHub on every launch. No mods inside; the first launch downloads them.
 
 Usage: python make_import_zips.py   (needs "raw_base" in packsync.json)
-Writes <pack>-autoupdate.zip (full) and <pack>-public-autoupdate.zip next to this script, so once pushed
-they download from github.com/<user>/<repo>/raw/main/<zip> (also usable in Prism's Import from URL).
+Writes best-of-pack-3-autoupdate.zip next to this script, so once pushed it downloads from
+github.com/<user>/<repo>/raw/main/<zip> (also usable in Prism's Import from URL).
 """
 import json, os, zipfile
 
@@ -30,8 +30,7 @@ def instance_cfg(name, pack_url):
     return "\n".join(out) + "\n"
 
 
-for folder, name, zip_name in (("full", "best of pack 3", "best-of-pack-3-autoupdate.zip"),
-                                ("public", "best of pack 3 (public)", "best-of-pack-3-public-autoupdate.zip")):
+for folder, name, zip_name in (("pack", "best of pack 3", "best-of-pack-3-autoupdate.zip"),):
     url = f"{CFG['raw_base'].rstrip('/')}/{folder}/pack.toml"
     path = os.path.join(OUT, zip_name)
     with zipfile.ZipFile(path, "w", zipfile.ZIP_DEFLATED) as z:
