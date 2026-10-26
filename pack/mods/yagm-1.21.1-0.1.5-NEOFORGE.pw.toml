@@ -1,0 +1,12 @@
+name = "yagm-1.21.1-0.1.5-NEOFORGE"
+filename = "yagm-1.21.1-0.1.5-NEOFORGE.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/lkwjObIy/versions/l3oKyWhb/yagm-1.21.1-0.1.5-NEOFORGE.jar"
+hash-format = "sha512"
+hash = "15433a7f5ecdb01fca27d4f158a3d4b09558f6c7f66a6ba6f93403c63a80be361c2e6c89fe852d8dadb954ae45029c2a63725991c891ff845f36b8b47534eb28"
+
+[update.modrinth]
+mod-id = "lkwjObIy"
+version = "l3oKyWhb"

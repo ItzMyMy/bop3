@@ -7662,11 +7662,6 @@ hash = "f3a9cfde56668a61cdfcbb5d2dad9d77bc824b73136cc142993461366997a300"
 metafile = true
 
 [[files]]
-file = "mods/conures-graves-1.0.2.pw.toml"
-hash = "ea2c7bbe04fe26265150932cae15fac1beee9d34589e5bb5a2c73062d8eaa12b"
-metafile = true
-
-[[files]]
 file = "mods/coolrain-1.21.1-NeoForge-1.0.2.pw.toml"
 hash = "ead19e2db4d2f442019f6dea278be9d2d3707c1e470345a17616731e5917137d"
 metafile = true
@@ -8476,6 +8471,11 @@ metafile = true
 [[files]]
 file = "mods/xercapaint-neoforge-1.21.1-2.0.1.pw.toml"
 hash = "9736f0d9bb58591dfff22d1cd5e789ba66bb69dbfba7437ccc98e9ebbf2be4ec"
+metafile = true
+
+[[files]]
+file = "mods/yagm-1.21.1-0.1.5-NEOFORGE.pw.toml"
+hash = "5321aa0d110784eba7f562e4542eb20e6bdbfab9ae20180f16a6298a573aa2bd"
 metafile = true
 
 [[files]]
