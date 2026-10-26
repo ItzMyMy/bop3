@@ -5141,7 +5141,7 @@ preserve = true
 
 [[files]]
 file = "config/craftpresence.json"
-hash = "1fd768c78f4fd9f133c71abafb7a2732caf25985587a78f53950e8f19288ba00"
+hash = "258dd743b11eff675545afe519b474b257399966ee2850458e795c5bde56b98a"
 preserve = true
 
 [[files]]

@@ -36,11 +36,11 @@
   },
   "serverSettings": {
     "fallbackServerIcon": "default",
-    "fallbackServerName": "Minecraft Server",
-    "fallbackServerMotd": "A Minecraft Server",
+    "fallbackServerName": "The Basement Modded",
+    "fallbackServerMotd": "Create + Bullshit!",
     "serverData": {
       "default": {
-        "textOverride": "Playing on {server.motd.raw}"
+        "textOverride": "Playing on the basement"
       }
     },
     "pingRateInterval": 5,
