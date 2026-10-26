@@ -2,7 +2,8 @@
 that installs and updates the pack from GitHub on every launch. No mods inside; the first launch downloads them.
 
 Usage: python make_import_zips.py   (needs "raw_base" in packsync.json)
-Writes <pack>-autoupdate.zip (full) and <pack>-public-autoupdate.zip to the Desktop.
+Writes <pack>-autoupdate.zip (full) and <pack>-public-autoupdate.zip next to this script, so once pushed
+they download from github.com/<user>/<repo>/raw/main/<zip> (also usable in Prism's Import from URL).
 """
 import json, os, zipfile
 
@@ -10,7 +11,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 CFG = json.load(open(os.path.join(HERE, "packsync.json"), encoding="utf-8"))
 INSTANCE = CFG["instance"]
 BOOTSTRAP = os.path.join(os.path.dirname(CFG["packwiz"]), "packwiz-installer-bootstrap.jar")
-OUT = os.path.join(os.path.expanduser("~"), "Desktop")
+OUT = HERE
 KEEP = {"ConfigVersion", "iconKey", "InstanceType", "OverrideMemory", "MaxMemAlloc", "MinMemAlloc", "PermGen"}
 
 

@@ -7,8 +7,14 @@ Auto-updating Prism packs, built with [packwiz](https://packwiz.infra.link).
 
 ## Playing
 
-Import `best-of-pack-3-autoupdate.zip` (or the `-public-` one) into Prism: *Add Instance → Import*.
+In Prism: *Add Instance → Import*, and paste one of these links (or download the zip and pick it):
+
+- full: `https://github.com/ItzMyMy/bop3/raw/main/best-of-pack-3-autoupdate.zip`
+- public: `https://github.com/ItzMyMy/bop3/raw/main/best-of-pack-3-public-autoupdate.zip`
+
 The first launch downloads the pack; later launches download only what changed.
+The zips only change when the instance settings or Minecraft/NeoForge version do: then run
+`python make_import_zips.py` and push.
 
 ## Updating the pack (for ItzMyMy)
 
