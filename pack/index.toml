@@ -8474,11 +8474,6 @@ hash = "8b1f8dacc578f20af44be31640a244dc7d9e47dd317770a5c2496cd8879dfb2f"
 metafile = true
 
 [[files]]
-file = "mods/vietnams_delight_reborn-neoforge-1.21.1-2.0.0.pw.toml"
-hash = "c7dda9ad2cf5b9e3ecb2c402efabc7c0d6a4553749f2b8c9bc4486f69d7af13b"
-metafile = true
-
-[[files]]
 file = "mods/xercapaint-neoforge-1.21.1-2.0.1.pw.toml"
 hash = "9736f0d9bb58591dfff22d1cd5e789ba66bb69dbfba7437ccc98e9ebbf2be4ec"
 metafile = true
