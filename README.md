@@ -23,6 +23,13 @@ Later launches download only what changed.
 The import zip only needs remaking when the instance settings or Minecraft/NeoForge version change:
 run `python make_import_zips.py` and push.
 
+## Server zip
+
+`python make_server_zip.py` writes `best-of-pack-3-server.zip` to the Desktop: every mod that isn't
+client-only, the configs, and `server/server-README.txt` and `server/user_jvm_args.txt`.
+`server_extra_mods` in `packsync.json` adds mods only the server gets (Chunky, for pregenerating the world);
+they're downloaded from their URL and checked against their sha512.
+
 Settings are in `packsync.json`:
 
 - `client_only_mods`: mod ids that only run on the client. Add new client-only mods here.
